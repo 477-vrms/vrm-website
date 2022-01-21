@@ -53,19 +53,37 @@ contact course staff.
 		<div id="content">
             <h2>Progress Report for -insert student name here-</h2>
             
-            <h4>Week 1:</h4>
-            <b>Date:</b> -Enter today's date here-<br>
-            <b>Total hours:</b> -Enter the number of hours you worked this week here-<br>
-            <b>Description of design efforts:</b><br>
-            -Discuss your design efforts here. Remember to follow the guidelines presented in the Progress Report Policy, available <a href="https://engineering.purdue.edu/ece477/Course/Policies/">here</a>. This is a template entry; simply copy/paste this entry when doing progress reports each week.</br>
-
             <br>
 
             <h4>Week 2:</h4>
-            <b>Date:</b> -Enter today's date here-<br>
-            <b>Total hours:</b> -Enter the number of hours you worked this week here-<br>
+            <b>Date:</b> Jan 21, 2022<br>
+            <b>Total hours:</b> 10 hours <br>
             <b>Description of design efforts:</b><br>
-            -Discuss your design efforts here. Remember to follow the guidelines presented in the Progress Report Policy, available <a href="https://engineering.purdue.edu/ece477/Course/Policies/">here</a>. This is a template entry; simply copy/paste this entry when doing progress reports each week.</br>
+			
+            <img style="width: 50%;" src="Files/img/progress1/week2/RobotScrewdriver.png"/>
+			
+ 	    <p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
+            <p>I spent this week working on setting up the robot arm that we rented from the lab and working on different ways of communicating with the servos. Once I could control the robot arm via Bluetooth (Built in IOS app), I broke out an Arduino uno to quickly prototype the serial connection between a controller and the 6-servo controller that came with the robot arm. Even though we are unable to utilize an Arduino in our final prototype, I set it up so that Brian would be able to test out the unity data while I work on setting up a serial communication on the STM32 development board. The LeArm robot kit came with built in Arduino Uno libraries that supported serial communication between the Arduino uno and the servo driver, so I felt it was worth the time spent to set up this prototype to make sure Brian wasn’t blocked in his progress. I also researched the Raspberry-Pi wifi module and the STM32 development board capabilities. </p>
+
+            <p style="font-weight: bold; text-align: center;">How did the student work on it? </p>
+            <p> Most of my time was spent researching the specifications of the LeArm Robot Kit by searching through the user manuals, videos, and advanced communication tutorials. The remainder of my time was spent setting up the serial connection between the Arduino Uno and the servo driver using the tutorial. I used the LeArm app, Arduino IDE, LeArm manuals, and LeArm videos to complete this task. <\p>
+		    
+            <p style="font-weight: bold; text-align: center;"> What was the result, and how does this affect the project?  </p>
+            <p> I successfully set up the communication between the Arduino Uno and the robot arm, so the team is now able to type in a number 0-2500 in the Arduino program for each individual servo (2-8) and controls the position of the servo once the program is compiled and uploaded to the Arduino.  The photo to the right is the LeArm app that they developed for the arm. The range for the servos is displayed there (0-2500). As I said above, this is temporary so the Software team can test the Unity data points while I develop the same Serial Communication using the STM32 development board. </p>
+
+            <img style="width: 50%;" src="Files/img/progress1/week2/Servopng.jpg"/>
+            <img style="width: 50%;" src="Files/img/progress1/week2/arudion1.jpg"/>
+	    <img style="width: 50%;" src="Files/img/progress1/week2/arduino2.jpg"/>
+	    <img style="width: 50%;" src="Files/img/progress1/week2/arduino3.jpg"/>
+
+            <p style="font-weight: bold; text-align: center;"> UART Data format: </p>
+           
+	    <img style="width: 50%;" src="Files/img/progress1/week2/headerpng.png"/>
+	    
+  	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
+            <p> The next step is to replace the Arduino with the STM32 development board and test communication between the development board and the servos. After communication is tested and is verified to be correctly sending positional data, I need to connect the Raspberry-Pi to the STM32 development board using a serial communication protocol to transfer the Unity positional data directly to the STM32 board. </p>
+
+            <!-- <h4>Week 2:</h4>
                       
         </div>
 	
