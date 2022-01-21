@@ -51,21 +51,84 @@ contact course staff.
 			and include things such as a file lister (for listing out homework assignments or tutorials)
 		-->
 		<div id="content">
-            <h2>Progress Report for -insert student name here-</h2>
+            <h2>Progress Report for James Donnelly</h2>
             
-            <h4>Week 1:</h4>
+            <!-- <h4>Week 1:</h4>
             <b>Date:</b> -Enter today's date here-<br>
             <b>Total hours:</b> -Enter the number of hours you worked this week here-<br>
             <b>Description of design efforts:</b><br>
-            -Discuss your design efforts here. Remember to follow the guidelines presented in the Progress Report Policy, available <a href="https://engineering.purdue.edu/ece477/Course/Policies/">here</a>. This is a template entry; simply copy/paste this entry when doing progress reports each week.</br>
+            -Discuss your design efforts here. Remember to follow the guidelines presented in the Progress Report Policy, available <a href="https://engineering.purdue.edu/ece477/Course/Policies/">here</a>. This is a template entry; simply copy/paste this entry when doing progress reports each week.</br> -->
 
             <br>
 
             <h4>Week 2:</h4>
-            <b>Date:</b> -Enter today's date here-<br>
-            <b>Total hours:</b> -Enter the number of hours you worked this week here-<br>
-            <b>Description of design efforts:</b><br>
-            -Discuss your design efforts here. Remember to follow the guidelines presented in the Progress Report Policy, available <a href="https://engineering.purdue.edu/ece477/Course/Policies/">here</a>. This is a template entry; simply copy/paste this entry when doing progress reports each week.</br>
+				<b>Date:</b> 1/21/2022<br>
+				<b>Total hours:</b> 15<br>
+				<b>Description of design efforts:</b><br>
+
+				<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
+				<p>My main goals for the week were to set up the base website for our team, and to discuss and solidify
+					how we plan to have each component of our system work in tandem through the creation of a system level
+					diagram. I also worked with Matthew on transitioning our ECESS API into one that can be used with this
+					project.
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">Website</p>
+				<p>This ended up being a much simpler task than expected, as a template was readily available to us for
+					us to fill in. Aside from figuring out how to access the web hosted files for our team and moving these
+					files to a private repository where the team members could all collaborate without having to sign into
+					a remote machine, the only step that was needed was to implement a continuous deployment system that would
+					automatically deploy our changes to the website upon updating the repository, which was accomplished with
+					the help of Matthew.
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">System Level Diagram</p>
+				<p>As with any engineering undertaking, it's critial that everyone on the team is on the same page in terms
+					if their understanding of our system's understanding. To aid with this, as well as at the request of course
+					staff, I made a very simple system level diagram to aid in the visualization of our systems functionality.
+					In particular, our system has multiple components that will be in constant communiation with each other
+					using a variety of protocols. Some of this communication will be direct, such as transmitting video feed
+					from the robot arm to the VR headset, while others will require some computation, such as when converting
+					hand remote position inormation from the VR headset to arm movement instructions that the robot arm can
+					carry out. Our first draft of our system level diagram can be seen below.
+				</p>
+				<img style="width: 100%;" src="Files/img/donnell9/week2/SystemDiagram1.png" />
+				<p>This system diagram shows the general flow of data throughout the components of our system. As shown, the VR
+					headset and controller will communicate with the arm through the assistance of a Google Cloud virtual machine
+					and a Raspberry Pi. The Google Cloud VM will take positional data from the VR headset and convert it to
+					movement instructions for the robot arm, while simultaneously streaming video from the arm to the VR headset.
+					TCP Websockets will be used to transfer video streaming data, while TCP MQTT will be used to transmit movement
+					data, as MQTT is better suited for efficient transfer of smaller data sizes. The Raspberry Pi will be used to
+					interface the hardware on the arm with the wireless connection to the Google Cloud server.
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">DevOps Continuous Integration and Deployment with API Gateway</p>
+				<p>Our poject will rely heavilt on an API for communications between components. This API can be found 
+					<a href="https://github.com/477-vrms/vrms-api">here</a>
+					. It is a bassed off of the ECESS (Electrical and Computer Engineering Student Society) API gateway developed by
+					Matthew and myself, which can be found
+					<a href="https://github.com/Purdue-ECESS/ecess-api">here</a>
+					. A big reason that we copied a large portion this API over is because it handles a lot of the houskeeping that
+					we will need to be dealing with constantly with our code, much of this having to do with the continious Integration
+					pipeline that we want to have set up for our project. It will also allow us to interface with Google Cloud Platform
+					for the deployment of our server side code, which will become the backbone of how data is handled in our project
+					(as seen in our system diagram).
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">What I Learned</p>
+				<p>Through the creation of the system diagram and discussion with my teammates, I gained a much greater understanding
+					of our project's components and their interactions. Ultimately I feel that this will really help in preparing
+					me to move forward with our project's development and will help me to keep up to date on the functionality of the
+					components that my teammates are working on.
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">Next Week</p>
+				<p>My main goal for next week is to gain an understanding of Unity so that I will be able to assist Brian with the
+					development of the VR arm controller. I plan not only to work on my general understanding of Unity, but also to
+					dig through the existing simulations that Brian has already created to get a better understanding of how our
+					project specific code is driven. Aside from this, I plan to continue working with Matthew on the development and
+					implementation of our API onto the Google Cloud Platform.
+				</p>
                       
         </div>
 	
