@@ -1,0 +1,23 @@
+.p-header {
+    font-weight: bold;
+    text-align: center;
+}
+
+.code {
+
+}
+
+img {
+    max-width: 100%;
+}
+
+code {
+    padding: 20px;
+}
+
+.div-flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
