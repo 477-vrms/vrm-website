@@ -206,7 +206,7 @@ contact course staff.
             <div id="week3-div">
                 <h4>Week 3:</h4>
                 <b>Date:</b> Jan 27, 2022<br>
-                <b>Total hours:</b> 10 <br>
+                <b>Total hours:</b> 15 <br>
                 <b>Description of design efforts:</b><br>
 
                 <p class="p-header">Main Goals of the Week</p>
@@ -222,7 +222,7 @@ contact course staff.
                     can be found here <a href="https://www.raspberrypi.com/software/">https://www.raspberrypi.com/software/</a>.
                     In addition, we decided to stick with Python as the software of choice on the PI because of other
                     team member experience with using Python on the PI; I have experience in both C and Python, but using C
-                    Programming language could pop up new problems we don't want to run into in the future. At the momoment,
+                    Programming language could pop up new problems we don't want to run into in the future. At the moment,
                     the PI can successfully turn on inside the lab. The next part is deciding how our program will run
                     on it.
                 </p>
@@ -239,25 +239,46 @@ contact course staff.
                     In addition to being able to start and stop the program, you can also run environment variables etc.
                     This isn't set up yet since I want to write code that can connect to the server first before doing
                     anything else with the pi.
+                    <img src="Files/img/progress3/week3/docker-systemd.jpg"/>
                 </p>
-                <p class="p-header">Setting up ZeroMQ with the Server and Issues</p>
-                <p>
-                    ZeroMQ is a Message broker which sends quick and easy packets from one online server to another.
-                    We had a simple example working where the server subscribes to a topic called
-                    <code>vrms_server</code>. When running it locally, I was able to have the server side code
-                    display message it was getting from another node environment that pushes to the topic
-                    <code>vrms_server</code>. As a result, I pushed the changes into production, but I wasn't able to
-                    have that separate node environment push messages nor have the production server display messages
-                    from that separate node environment; as a result, I think there is an issue with the setup with
-                    Google Cloud.
-                </p>
+
+                <p class="p-header">Setting up Message Broker with the Server and Issues</p>
+                <div>
+                    We tried using MQTT with our Google Cloud Server, but we realized and the team and TAs came into an
+                    agreement to use UDP for most of our protocol instead of TCP. As a result, we decided to change
+                    our focus to <a href="https://nodejs.org/api/dgram.html">dgram</a> to create udp websockets. In
+                    addition, we initially wanted to use <a href="https://zeromq.org/">ZeroMQ</a> message broker, but
+                    it doesn't have UDP support in its primary build; in other words, we have to do additional
+                    configuration to enable it. As a result, we are going to use
+                    <a href="https://www.rabbitmq.com/">RabbitMQ</a>. So far, I reconfigured the Google Cloud VM
+                    to accept UDP traffic into it.
+                    <div style="display: flex; margin-top: 10px">
+                        <div>
+                            <img height="300px" src="Files/img/progress3/week3/gcloud-network-config.jpg"/>
+                            <br>
+                            <img height="50px" src="Files/img/progress3/week3/gcloud-network-tag.jpg"/>
+                        </div>
+                        <div style="flex: 1">
+                            I did this by first updating the network tag as shown below, which is a rule that states to open
+                            all UDP ports.
+                            In addition, attach the network tag to our Virtual Google Cloud Machine.
+                        </div>
+                    </div>
+                </div>
 
                 <p class="p-header">What I Learned</p>
                 <p>
+                    I learned a little about MQTT, which is now useless because we will be switching over to a
+                    new type of message broker. In addition, I learned about differences in UDP vs TCP, and which
+                    protocol to use; I learned I need to look more deeply into dgram and RTSP for video streaming.
                 </p>
+
                 <p class="p-header">Next Steps</p>
                 <p>
-
+                    My next step is to do the connection with the raspberry pi with UDP with the server. We do need
+                    to redo the steps for the joint data being sent to the server since that is done using TCP, but
+                    we just want to at least have the full pipeline working; we will redo it another time. I need to
+                    work close with Emma since she will also be doing a lot of connections between the pi and robotic arm.
                 </p>
             </div>
 
