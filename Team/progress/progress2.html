@@ -139,24 +139,14 @@ contact course staff.
 				</p>
 				<img style="width: 100%;" src="Files/img/blatimer/week3/currentarm.gif" />
 				<p style="font-weight: bold; text-align: center;">Getting robot claw to work</p>
-				<p>hello </p>
-				<img style="width: 100%;" src="Files/img/blatimer/week3/firstarm.png" />
-				<p>After doing that, I remade the arm to give it a more 3D look, as well as to sharpen my skills in
-					creating arms. </p>
-				<img style="width: 100%;" src="Files/img/blatimer/week2/earlyarm.gif" />
-				<p>These two arms seemed to work well, and will probably be used to test our base level arm since they
-					have the same number of joints and rotation axis. However, one of my goals for the project was to
-					create an arm simulation that allowed for more control, and these two didnt allow for much other
-					than location tracking. What I wanted was rotational tracking in all axis as well. To do this, I
-					decided to not spend time trying extremely complex inverse kinematics for multiple targets, so I
-					instead looked to unity packages that can handle this part for me. Here's an example of one attempt
-					that took way too long to get working.</p>
-				<img style="width: 100%;" src="Files/img/blatimer/week2/2ndarm.gif" />
-				<p>Unfortunately, this arm would only work inside a simulation, since once of the joints is unable to
-					move properly on one axis. My search continued, with lots of testing, and I eventually found a
-					package that easily allowed me to create a simulation with Inverse Kinematics for multiple targets.
-					This current arm is the goal for the project, if we can succeed at adding extra joints to our robot
-					arm.
+				<p>The next step was to figure out how to find how much the trigger is being pressed. Through a bit of
+					research into unities libraries, I found a way to track it. So now Joint 8 is being broadcasted to
+					the server.</p>
+				<img style="width: 100%;" src="Files/img/blatimer/week3/Joint8.gif" />
+				<p>After doing that, I made a custom model to get an animation of the claw. </p>
+				<img style="width: 100%;" src="Files/img/blatimer/week3/ClawAnimation.gif" />
+				<img style="width: 100%;" src="Files/img/blatimer/week3/Claw.gif" />
+				<p>Now the robot arm actually feels like something that can pick up and move objects.
 				</p>
 				<img style="width: 100%;" src="Files/img/blatimer/week2/4tharm.gif" />
 				<p>This arm feels very natural to use, so I think the only changes to this arm will be to make it look
