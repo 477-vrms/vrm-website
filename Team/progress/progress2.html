@@ -140,13 +140,17 @@ contact course staff.
 				<img style="width: 100%;" src="Files/img/blatimer/week3/currentarm.gif" />
 				<p style="font-weight: bold; text-align: center;">Getting robot claw to work</p>
 				<p>The next step was to figure out how to find how much the trigger is being pressed. Through a bit of
-					research into unities libraries, I found a way to track it. So now Joint 8 is being broadcasted to
-					the server.</p>
+					research into unities libraries, I found a way to track it. I created a custom game object with a
+					script to track the percent the trigger is pressed, and relayed that information to the connection
+					script. So now Joint 8 is being broadcasted to the server.</p>
 				<img style="width: 100%;" src="Files/img/blatimer/week3/Joint8.gif" />
-				<p>After doing that, I made a custom model to get an animation of the claw. </p>
+				<p>After doing that, I made a custom model to get an animation of the claw. This claw has a script that
+					reads from the trigger game object, and uses that percent pressed value to determine how much the
+					claws need to move. </p>
 				<img style="width: 100%;" src="Files/img/blatimer/week3/ClawAnimation.gif" />
 				<img style="width: 100%;" src="Files/img/blatimer/week3/Claw.gif" />
-				<p>Now the robot arm actually feels like something that can pick up and move objects.
+				<p>Now the robot arm actually feels like something that can pick up and move objects, and technically
+					could if the physical arm was connected at this point.
 				</p>
 				<p style="font-weight: bold; text-align: center;">What I Learned</p>
 				<p>This week, I learned more about how Unity works, and learned how websockets/TCP connections work.
