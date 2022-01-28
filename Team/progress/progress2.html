@@ -128,23 +128,19 @@ contact course staff.
 				<b>Description of design efforts:</b><br>
 
 				<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
-				<p>My main goals for the week were to get more familiar with Unity, and to be able to create movable
-					arms within Unity. Since the arm relies on making a simulation for its movements, this task was top
-					priority to me.</p>
+				<p>My main goals for the week were to get the Unity simulation to fully be able to send all the data it
+					needs to to the server. This is important because the entire point of the simulation is to send the
+					angular data to the server.</p>
 
-				<p style="font-weight: bold; text-align: center;">Unity</p>
-				<p>To get started with Unity and VR development, I did a couple tutorials teaching me how to interface
-					the headset and controllers within the workspace. This also showed me a variety of features unity
-					provides with object creation and management.</p>
-
-
-				<p style="font-weight: bold; text-align: center;">Creating Robot Arms</p>
-				<p>After learning a bit about how VR development works within Unity, I started making a simple arm. For
-					this arm, I followed some tutorials on Inverse Kinematics within Unity to figure out how to create
-					this arm. I wrote two scripts, IKmanager.cs to calculate the overall Inverse Kinematics in 2D, and
-					LookAt.cs, to track the position of the target and "look" at it, which allows the arm to track a
-					target in 3D. </p>
-				<img style="width: 100%;" src="Files/img/blatimer/week2/firstarm.png" />
+				<p style="font-weight: bold; text-align: center;">Connecting Unity to web server</p>
+				<p>With help from Matthew, I managed to get a websocket set up in Unity, allowing us to send the data
+					from the simulation to the server. It works well, but does have some little problems, like lag when
+					too much data is sent. (Like if the arm moves too fast) These should be easily fixable, thankfully.
+				</p>
+				<img style="width: 100%;" src="Files/img/blatimer/week3/currentarm.gif" />
+				<p style="font-weight: bold; text-align: center;">Getting robot claw to work</p>
+				<p>hello </p>
+				<img style="width: 100%;" src="Files/img/blatimer/week3/firstarm.png" />
 				<p>After doing that, I remade the arm to give it a more 3D look, as well as to sharpen my skills in
 					creating arms. </p>
 				<img style="width: 100%;" src="Files/img/blatimer/week2/earlyarm.gif" />
