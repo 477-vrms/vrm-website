@@ -460,13 +460,16 @@ div .img-caption h4 {
     margin-right: 10px;
 }
 
-.photo p {
-
+.photo div {
+	overflow: hidden;
+	width: 190px;
+	height: 190px;
+	border-radius: 100%;
 }
 
 .photo img {
-	width: 190px;
-	vertical-align: top;
+	/*width: 190px;*/
+	vertical-align: center;
 }
 
 .info {
