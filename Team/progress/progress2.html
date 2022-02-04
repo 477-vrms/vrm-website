@@ -164,6 +164,73 @@ contact course staff.
 				</p>
 
 			</div>
+			<div id="content">
+
+				<br>
+
+				<h4>Week 4:</h4>
+				<b>Date:</b> 2/4/2022<br>
+				<b>Total hours:</b> 35<br>
+				<b>Description of design efforts:</b><br>
+
+				<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
+				<p>My main goal for the week was to create a small demo for the arm within unity, while improving
+					existing scripts.</p>
+
+				<p style="font-weight: bold; text-align: center;">Creating the demo</p>
+				<p>I created a small scene with some objects on a table that the arm is able to grab. Each object has
+					physics, so the arm can interact with the scene just like a real life arm could interact with real
+					life objects. While the physics are a little wonky, I think this is a good demo for showing how to
+					use the simulation.
+				</p>
+				<img style="width: 100%;" src="Files/img/blatimer/week4/Demo.png" />
+				<p style="font-weight: bold; text-align: center;">New Scripts</p>
+				<p>I created a bunch of new scripts to help with this demo, and some to improve the general use of the
+					arm:</p>
+				<p>AllowClawToGrab.cs - This script is a big one, and required a lot of fine tuning and obscure
+					knowledge of how Unity works. What this does is allows the claw to "grab" objects to showcase what
+					the real arm should be able to do. The script checks certain collision polygons on the arm while its
+					closing, and if those polygons intersect an object, it will stick the object to the claw, and stop
+					the claw from closing any more. This gives the illusion of the claw grabbing the object. When the
+					user lets go of the trigger, the claw opens, and drops the object. The object is also given
+					velocities to reflect how the arm was moving the object. This script is a little glitchy since
+					unity's physics system doesn't really like collisions between two physics objects very well, but it
+					works well enough for a demo
+					to showcase the
+					simulation.</p>
+				<p>RemoteControl.cs - This script allows the user to remotely control the robot arm target. By holding a
+					button on the controller, the user gets full control of the target, and can move it without bringing
+					the controller all the way to the target.</p>
+				<p>Reset.cs - This script allows the user to reset all of the objects in the demo scene by pressing a
+					button on the controller. This is helpful because when playing the demo, it is very easy for objects
+					to become too far away from the arm.</p>
+				<p>LimitRotation.cs - This script limits the amount the target can be rotated, as an extra layer of
+					protection for the joint limits.</p>
+				<p>General Ignore Collision Scripts - These scripts help stop things going crazy by disabling collions
+					with certain objects like the player object and some parts of the arm. </p>
+				<p style="font-weight: bold; text-align: center;">Modified Scripts</p>
+				<p>I also modified a few of my existing scripts to work better: </p>
+				<p>TriggerGrip.cs (Trigger button to control claw) - Changed the way the trigger controls the claw,
+					added acceleration to the claw movements and gave it more precicsion. </p>
+				<p>Connection.cs (connection to server) - Reduced the number of bytes the JSON packet needs to send.
+					Added an epoch timestamp for synchronization. </p>
+				<p style="font-weight: bold; text-align: center;">What I Learned</p>
+				<p>This week, I continued to learn more about how Unity works. (especially how rotation works in 3D)
+					Making all of these scripts is good practice for when I need to make the more important scripts,
+					like adding the 3D cameras into Unity when we get a hold of it.
+				</p>
+				<p style="font-weight: bold; text-align: center;">Next Week</p>
+				<p>My goals for next week are to better synchronize the timestamps from Unity's connection script with
+					the Raspberry Pi's timestamp. Right now, our latency is much lower than the limit we've set for
+					ourselves, but our epoch timestamps are offset by a couple seconds. I also want to look into
+					limiting the number of joints in the simulation, to see if we really need all 8 joints for the arm
+					to work naturally. I also want to keep improving my existing scripts, in order to make everything as
+					smooth and modifiable as possible. I want to add some sort of debug menu within the game, that
+					allows me to change aspects of the simulation on the fly. (joint limits, remote control speed, show
+					demo, etc.)
+				</p>
+
+			</div>
 			<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
 			<div id="footer"></div>
 		</div>
