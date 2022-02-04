@@ -125,24 +125,24 @@ contact course staff.
             <b>Description of design efforts:</b><br>
 			
  	    <p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
-            <p> This week I replaced the Arduino with the STM32 development board and tested communication between the development board and the servo driver module using a UART connection. After finishing this, I worked on the individual electrical overview document. I ordered new parts including brackets and a passive 5V buzzer. I investigated new motors and how we could add onto the robot arm once the brackets and motors arrived. <\p>
+            <p> This week I replaced the Arduino with the STM32 development board and tested communication between the development board and the servo driver module using a UART connection. After finishing this, I worked on the individual electrical overview document. I ordered new parts including brackets and a passive 5V buzzer. I investigated new motors and how we could add onto the robot arm once the brackets and motors arrived. </p>
  	    <p style="font-weight: bold; text-align: center;">How did the student work on it? </p>
-            <p> Using the CubeIDE that I set up last week, I created a new project and researched the UART protocol so that I could communicate with the servo driver board like I did with the Arduino library last week. Once I read back through my ECE362 notes, I began writing my first program to contact the servo driver. Using the LeArm advanced communication document, I created a buffer with the following structure seen below:  <\p>
+            <p> Using the CubeIDE that I set up last week, I created a new project and researched the UART protocol so that I could communicate with the servo driver board like I did with the Arduino library last week. Once I read back through my ECE362 notes, I began writing my first program to contact the servo driver. Using the LeArm advanced communication document, I created a buffer with the following structure seen below:  </p>
 		    
 	    <div class="inline-block"> 
 		   <img style="width: 25%;" src="Files/img/progress1/week2/commandheader.png"/>
 		   <img style="width: 25%;" src="Files/img/progress1/week2/bufferpic.png"/>
     	    </div>
 
-            <p> The buffer had to be set up this way so that the buffer could be sent across the UART Tx wire to be received in the correct format by the servo driver. Once I got one of the motors to move, I experimented with which servo ID I sent to find out which servo had which servo ID. I also experimented to see what the limits for each individual servo were. <\p>
+            <p> The buffer had to be set up this way so that the buffer could be sent across the UART Tx wire to be received in the correct format by the servo driver. Once I got one of the motors to move, I experimented with which servo ID I sent to find out which servo had which servo ID. I also experimented to see what the limits for each individual servo were. </p>
 	
 	    <div class="inline-block"> 
 		   <img style="width: 25%;" src="Files/img/progress1/week2/tableval.png"/>
     	    </div>
 		    
-	    <p>For the demo this week, I set up a program that moved all of the servos from their minimum values to their maximum values and then in reverse. <\p>
+	    <p>For the demo this week, I set up a program that moved all of the servos from their minimum values to their maximum values and then in reverse.</p>
   	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
-	    <p> The next step is the Raspberry-Pi UART connection. Once that is set up, we will be able to send the values that we have already gotten to the Raspberry-Pi from the server to the microcontroller.<\p>
+	    <p> The next step is the Raspberry-Pi UART connection. Once that is set up, we will be able to send the values that we have already gotten to the Raspberry-Pi from the server to the microcontroller.</p>
         </div>
 	
             <!-- <h4>Week 4:</h4> -->
