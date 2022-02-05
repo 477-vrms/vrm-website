@@ -60,6 +60,7 @@ contact course staff.
                 <ul style="display: block">
                     <li><a href="Team/progress/progress3.html#week2-div">Week 2</a></li>
                     <li><a href="Team/progress/progress3.html#week3-div">Week 3</a></li>
+                    <li><a href="Team/progress/progress3.html#week4-div">Week 4</a></li>
                 </ul>
             </div>
 
@@ -282,6 +283,78 @@ contact course staff.
                 </p>
             </div>
 
+            <div id="week4-div">
+                <h4>Week 4:</h4>
+                <b>Date:</b> Feb 4, 2022<br>
+                <b>Total hours:</b> 20 <br>
+                <b>Description of design efforts:</b><br>
+
+                <p class="p-header">Main Goals of the Week</p>
+                <p>
+                    So my main goal of this week was to start having Brian and Emma communicate how to translate
+                    data from unity to data on the arm. It seemed like Brian was moving very quickly with having
+                    most of the unity configuration setup, and Emma already has the arm moving. As a result,
+                    the next step was to link them where we can demo the arm being moved by Brian using Unity.
+                </p>
+
+                <p class="p-header">Reconfiguration of Google Cloud</p>
+                <p>
+                    So in addition of UDP being added to the Google VM, we also added TCP back into Google Cloud. After
+                    looking more into <a href="https://www.rabbitmq.com/">Rabbit MQ</a>, we realized that RabbitMQ requires
+                    a RabbitMQ server; we do realize that we can set one up, but our main goal was for us to code the
+                    message broker part, so we reverted to <a href="https://zeromq.org/">ZeroMq</a>. We used the
+                    <a href="https://github.com/zeromq/zeromq.js/">Node JS Library</a>, as well as the
+                    <a href="https://github.com/zeromq/pyzmq">Python Library</a> for the Raspberry Pi. The Raspberry Pi
+                    will keep a stable connection with the Google VM, and respond to instances when the server sends an
+                    update.
+                </p>
+
+                <p class="p-header">Getting Data from Server to Pi</p>
+                <p>
+                    So we got data onto the pi in a json format. It takes the json from ZeroMQ and parse it into a
+                    python object. For now, we put the joint data into a csv file. Here is a small snippet of the data.
+                </p>
+                <p>Python Program Running on Pi</p>
+                <img src="Files/img/progress3/week4/pi-status.jpg"/>
+                <p>logs.txt and joint.csv is the output</p>
+                <img src="Files/img/progress3/week4/home-directory.jpg"/>
+                <p>Content inside of joint.csv</p>
+                <div style="overflow: scroll">
+                    {'J1': -32, 'J2': -6, 'J3': 60, 'J4': 46, 'J5': -50, 'J6': 24, 'J7': 0, 'J8': 0, 'T': '1643926690.54'}, 1643926693.8405492, 3.300549268722534 <br>
+                    {'J1': -32, 'J2': -6, 'J3': 60, 'J4': 46, 'J5': -50, 'J6': 24, 'J7': 0, 'J8': 0, 'T': '1643926690.61'}, 1643926693.844577, 3.234577178955078 <br>
+                    {'J1': -32, 'J2': -6, 'J3': 60, 'J4': 46, 'J5': -50, 'J6': 24, 'J7': 0, 'J8': 0, 'T': '1643926690.67'}, 1643926693.892745, 3.222744941711426 <br>
+                    {'J1': -32, 'J2': -6, 'J3': 60, 'J4': 46, 'J5': -50, 'J6': 24, 'J7': 0, 'J8': 0, 'T': '1643926690.75'}, 1643926693.930231, 3.1802310943603516 <br>
+                    {'J1': -32, 'J2': -6, 'J3': 60, 'J4': 46, 'J5': -50, 'J6': 24, 'J7': 0, 'J8': 0, 'T': '1643926690.82'}, 1643926694.005648, 3.185647964477539 <br>
+                    {'J1': -32, 'J2': -6, 'J3': 60, 'J4': 46, 'J5': -50, 'J6': 24, 'J7': 0, 'J8': 0, 'T': '1643926690.87'}, 1643926694.0465941, 3.1765942573547363 <br>
+                    {'J1': -32, 'J2': -6, 'J3': 60, 'J4': 46, 'J5': -50, 'J6': 24, 'J7': 0, 'J8': 0, 'T': '1643926690.90'}, 1643926694.076011, 3.176010847091675 <br>
+                </div>
+                <p>
+                    J1 ... J8 represents the joint data. T represent the epoch time in seconds - the first 4 digits. We kept
+                    track on when we received the data, which is the data after the json packet, and then compare the difference.
+                    We did this to compare the time it takes to go from unity to the pi, and we realized something seemed off
+                    with the data. More will be explained later. However, this is a major success to have data from unity
+                    finally show up on the Pi, where Emma can start taking that JSON data and have the arm react to it.
+                </p>
+
+                <p class="p-header">What I Learned</p>
+                <p>
+                    For one our PSSE is to ensure that packets are being sent in less than 0.5 seconds from unity to the
+                    pi. We initially had the idea of timestamping the packet with when the packet is created, and then
+                    calculating the difference between the epoch time on the pi and the timestamp on the packet.
+                    We realized that the clock on both devices are not exactly the same, so we calculated that on
+                    average, the time difference is 3 seconds, which is awful. So we used a phone and recorded the change
+                    from the unity to the pi, and it was less than 0.5 seconds; we measured the difference in frames
+                    by using the iPhone's slo-mo.
+                </p>
+
+                <p class="p-header">Next Steps</p>
+                <p>
+                    So we got UDP setup, with some socket code on python. It is not running at the moment, but
+                    it is on there. Emma got the camera for the pi, so the next step is using udp and sending the video
+                    stream data to the server, and then server to website for debugging purposes. We don't know how
+                    do it on unity, but we will figure that out on a later date.
+                </p>
+            </div>
 <!--            <div id="week3-div">-->
 <!--                <h4>Week 3:</h4>-->
 <!--                <b>Date:</b> Jan 27, 2022<br>-->
