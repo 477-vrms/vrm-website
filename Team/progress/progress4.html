@@ -172,6 +172,53 @@ contact course staff.
 					over the course of the week. I also plan to keep working on the software side and will likely be looking into ways
 					to timestamp our data so that we can ensure that things get processed in the correct order.
 				</p>
+
+				<h4>Week 4:</h4>
+				<b>Date:</b> 2/4/2022<br>
+				<b>Total hours:</b> 12<br>
+				<b>Description of design efforts:</b><br>
+
+				<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
+				<p>My main goal for the week was to complete the mechanical overview, which includes deciding on the packaging for our
+					hardware as well as creating CAD models, and also creating a basic PCB layout footprint.
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">Packaging</p>
+				<p>No matter the hardware, in order to safely deliver the product, everything must be packaged in a way that will protect
+					the internals of the product and assist in its usability. For our project, the main feature will be an exposed robot
+					arm, which doesn't need any packaging. So, the packaging for our product is going to be fairly simple, as the only
+					thing that really needs protection is our PCB, Raspberry Pi, and any other exposed hardware for the arm. To do this,
+					we can use a simple box that will protect these elements while providing an opening for any cables or connectors.
+					There are many of these currently on the market that we could simply buy instead of having to make our own, but to
+					illustrate what we are looking for I used CAD to make an example to our dimensions. I used a parameterized
+					version of 
+					<a href="this">https://github.com/477-vrms/vrms-api/runs/4872020682?check_suite_focus=true</a> design to fit our
+					needs of a 13x10x8cm box. We plan on mounting this to the base of our robot arm.
+				</p>
+				<img style="width: 100%;" src="Files/img/donnell9/week4/box1.png" />
+				<img style="width: 100%;" src="Files/img/donnell9/week4/box2.png" />
+
+				<p style="font-weight: bold; text-align: center;">PCB Layout Footprint</p>
+				<p>While there is a lot to PCB design, I was tasked this week with creating a very simple layout footprint for our PCB.
+					Nearly all of the design still has to be done, but this gives us a general idea of what we need to include on our PCB.
+					For our PCB we're going to keep it simple, since we will have a lot of help from our Raspberry Pi. Our PCB will incude
+					our STM micro alongside a buzzer and its MOSFET, with 5 screw terminals (3 for the arm, 2 for the buzzer). The layout
+					can be seen below. All of our elements will fit on a 5x8cm board.
+					<img style="width: 100%;" src="Files/img/donnell9/week4/pcb.png" />
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">What I Learned</p>
+				<p>I have always really ejoyed playing around with CAD, but I've only had a couple of chances to do so for school projects,
+					so I had a lot of fun reasearching and editing designs for our hardware box. I also used KiCad for the first time,
+					which was a really nice learning experience. I plan on helping with the actual PCB design in the future, so it was
+					to get my feet wet in KiCad with something simple.
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">Next Week</p>
+				<p>My main goal for next week is to keep working on the PCB training videos. Having started using KiCad this week, I don't
+					think I'll have any issues picking up the software. On top of this, I plan on being available for any help that Emma,
+					Brian, and Matthew might need, so I'll be sure to keep in communication with them and keep my plan flexible.
+				</p>
         </div>
 	
 		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
