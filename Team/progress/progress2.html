@@ -231,6 +231,63 @@ contact course staff.
 				</p>
 
 			</div>
+			<div id="content">
+
+				<br>
+
+				<h4>Week 5:</h4>
+				<b>Date:</b> 2/11/2022<br>
+				<b>Total hours:</b> 15<br>
+				<b>Description of design efforts:</b><br>
+
+				<p style="font-weight: bold; text-align: center;">Synopsis</p>
+				<p>This week, I optimized some scripts, started on the debug menu, and changed the number of joints on
+					the arm.
+					First, I did a bit of bug-fixing to make the simulation run faster and transmit data better.
+					Previously for reasons unknown the firebase was updating slowly when transmitting data from the lab
+					PC and standalone VR headset. What I figured out was that it was a mix of unoptimized scripts and
+					Wi-Fi latency. I’ve properly optimized the scripts, and we bought a USB-C to ethernet adapter for
+					the headset if Wi-Fi is ever a problem.
+					For the debug menu, I started working on it. This took a lot of research into how Oculus does UI
+					handling, so it was a lot of guessing and checking what worked and what didn’t. I ended up getting
+					it working, and all I need to do now is add features to it.
+					For the robot arm, I changed the simulation to only use 7 joints, which means that we only need to
+					add one extra motor to the robot arm. I’ve found by testing that this joint was somewhat redundant,
+					and doesn’t change the functionality that much.
+				</p>
+
+				<p style="font-weight: bold; text-align: center;">Optimizing</p>
+				<p>This week, I worked on optimizing the general scripts I used, as it was clear that some of these had
+					some less than ideal complexity levels. The main problem this was causing is that the standalone VR
+					headset was transmitting data very slowly, which is against one of our PSSCs. I found that the main
+					culprit was actually an optimization I made to limit the amount of data being sent to the server, by
+					only sending it every hundredth of a millisecond, as opposed to as fast as possible. This ended up
+					lagging the program due to the calculations I was doing. I removed this, and added a different
+					optimization and now it works as well as the more powerful computer I was testing with.
+				</p>
+				<p style="font-weight: bold; text-align: center;">Debug Menu</p>
+				<p>I started work on the debug menu, which took a much longer time than expected. This required a lot of
+					tutorials, and forum posts to get working. Eventually, I figured it out. While this is currently
+					just a debug menu to toggle features, I think that this is the start of a main menu, and various UI
+					elements the simulation definitely needs.</p>
+				<img style="width: 100%;" src="Files/img/blatimer/week5/debug.png" />
+				<p style="font-weight: bold; text-align: center;">Robot Arm</p>
+				<p>Previously, we thought that the robot would need two extra joints to work well, bringing it to 8
+					total joints. I found that the 4th joint is somewhat redundant, since joint 6 does most of the same
+					work. I locked the joint to 0 rotation, and it looks like I was correct. Going forward, we are going
+					to be only using 7 joints, since it will be much easier to make mechanically.</p>
+				<img style="width: 100%;" src="Files/img/blatimer/week5/no4thjoint.jpg" />
+				<p style="font-weight: bold; text-align: center;">What I Learned</p>
+				<p>I learned this week that I have to be smart about what I'm writing in my scripts, since I see now
+					that they can cause performance issues. I also learned how UI works with oculus controllers, which
+					will be important for later.
+				</p>
+				<p style="font-weight: bold; text-align: center;">Next Week</p>
+				<p>Next week, I plan to work on the debug menu further, and more UI elements in general. Maybe if the Pi
+					camera gets sent to the server I can work on that, but I currently don’t know the ETA on that.
+				</p>
+
+			</div>
 			<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
 			<div id="footer"></div>
 		</div>
