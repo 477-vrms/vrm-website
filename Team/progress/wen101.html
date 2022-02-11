@@ -58,10 +58,10 @@ contact course staff.
             <div style="border: solid #1F1F1F; width: fit-content; padding: 5px;">
                 <p style="display: block">Table of Contents</p>
                 <ul style="display: block">
-                    <li><a href="Team/progress/progress3.html#week2-div">Week 2</a></li>
-                    <li><a href="Team/progress/progress3.html#week3-div">Week 3</a></li>
-                    <li><a href="Team/progress/progress3.html#week4-div">Week 4</a></li>
-                    <li><a href="Team/progress/progress3.html#week5-div">Week 5</a></li>
+                    <li><a href="Team/progress/wen101.html#week2-div">Week 2</a></li>
+                    <li><a href="Team/progress/wen101.html#week3-div">Week 3</a></li>
+                    <li><a href="Team/progress/wen101.html#week4-div">Week 4</a></li>
+                    <li><a href="Team/progress/wen101.html#week5-div">Week 5</a></li>
                 </ul>
             </div>
 
@@ -86,7 +86,7 @@ contact course staff.
                     <a href="https://cloud.google.com/blog/products/identity-security/enabling-keyless-authentication-from-github-actions">https://cloud.google.com/blog/products/identity-security/enabling-keyless-authentication-from-github-actions</a>.
                 </p>
 
-                <img src="Files/img/progress3/week2/google_wif.png"/>
+                <img src="Files/img/wen101/week2/google_wif.png"/>
 
                 <p>
                     Basically, in this tutorial, it uses a service account, in this case, [gh-actions-to-vm@mwenclubhouse.iam.gserviceaccount.com], to authenticate with GitHub. In the screenshot from Google Cloud from above, I say that if the GitHub repository is from 477-vrms/vrms-api, then it can access to my Google Cloud Account.
@@ -94,7 +94,7 @@ contact course staff.
                     <a href="https://github.com/477-vrms/vrms-api/runs/4872020682?check_suite_focus=true">https://github.com/477-vrms/vrms-api/runs/4872020682?check_suite_focus=true</a>
                 </p>
 
-                <img src="Files/img/progress3/week2/gh_actions.png"/>
+                <img src="Files/img/wen101/week2/gh_actions.png"/>
 
                 <p>
                     From the first few tasks (Set up job, Checkout repository, Log in to the Container registry, Extract Metadata (tags, labels) for Docker and Build and Push to Docker image), GitHub is using its program to download our source code, and then run the build command to create an image of our image with our source code. For the next few tasks (Set up Cloud SDK), it obtain access to my Google Cloud Account, in this case “mwenclubhouse”, and obtains access to the Computer by telling Google to Generate an ssh key to login into the instance. The next step (Use GCP CLI), it runs commands directly on the instance.  For the last few steps (Post Setup Cloud SDK, Post Auth with GCP with WIF, etc), it delete the ssh key generated through this process to ensure nobody can access the instance if that key information is leaked, and then clean up building the docker container, and all other information.
@@ -152,7 +152,7 @@ contact course staff.
                     <a href="http://127.0.0.1:2000/route">http://127.0.0.1:2000/route</a> locally on the Google VM. You can see the API is online by going into
                     <a href="https://ecess-api.matthewwen.com/vrms/">https://ecess-api.matthewwen.com/vrms/</a>.
                 </p>
-                <img src="Files/img/progress3/week2/gateway_demo.png"/>
+                <img src="Files/img/wen101/week2/gateway_demo.png"/>
 
                 <p class="p-header">Programming Language Used for API Application</p>
                 <p>
@@ -168,7 +168,7 @@ contact course staff.
                 <p>
                     As a software engineering lead, I’m mostly in control on ensuring that all our components can communicate with each other. To reiterate the components is the Unity Software, which runs on the Virtual Reality Headset, the Server, and the IoT device. Using Brian’s Unity code, Brian had an idea to be able to upload joint data from unity to the server. In addition, we also wanted to test how fast it sends data from the server. As a result, I decided to use a Google Firebase Account, where we can use a real time Firebase database so we can easily see the data point changing. The reason on why we decided to Google Firebase because Google created an intuitive software where we can visibly see the changes. In addition, the reason of why we use Google Real Time Database then Google Firestone is because Google Real Time bills us based off the number of bytes sent, not based off of the number of requests, which is another database option offered in Firebase. Keep in mind, we are only using Firebase to check that data is being received, not as an actual service.
                 </p>
-                <img src="Files/img/progress3/week2/firebase.png"/>
+                <img src="Files/img/wen101/week2/firebase.png"/>
                 <p>
                     The structure is not final, as a result, if Brian needs to adjust the data to label them as more specific joints, he can adjust the data that is being posted to the Web Socket.
                     For the Web Socket, the data being sent to the server is in json format. So for this example, it is being sent like this
@@ -241,7 +241,7 @@ contact course staff.
                     In addition to being able to start and stop the program, you can also run environment variables etc.
                     This isn't set up yet since I want to write code that can connect to the server first before doing
                     anything else with the pi.
-                    <img src="Files/img/progress3/week3/docker-systemd.jpg"/>
+                    <img src="Files/img/wen101/week3/docker-systemd.jpg"/>
                 </p>
 
                 <p class="p-header">Setting up Message Broker with the Server and Issues</p>
@@ -256,9 +256,9 @@ contact course staff.
                     to accept UDP traffic into it.
                     <div style="display: flex; margin-top: 10px">
                         <div>
-                            <img height="300px" src="Files/img/progress3/week3/gcloud-network-config.jpg"/>
+                            <img height="300px" src="Files/img/wen101/week3/gcloud-network-config.jpg"/>
                             <br>
-                            <img height="50px" src="Files/img/progress3/week3/gcloud-network-tag.jpg"/>
+                            <img height="50px" src="Files/img/wen101/week3/gcloud-network-tag.jpg"/>
                         </div>
                         <div style="flex: 1">
                             I did this by first updating the network tag as shown below, which is a rule that states to open
@@ -316,9 +316,9 @@ contact course staff.
                     python object. For now, we put the joint data into a csv file. Here is a small snippet of the data.
                 </p>
                 <p>Python Program Running on Pi</p>
-                <img src="Files/img/progress3/week4/pi-status.jpg"/>
+                <img src="Files/img/wen101/week4/pi-status.jpg"/>
                 <p>logs.txt and joint.csv is the output</p>
-                <img src="Files/img/progress3/week4/home-directory.jpg"/>
+                <img src="Files/img/wen101/week4/home-directory.jpg"/>
                 <p>Content inside of joint.csv</p>
                 <div style="overflow: scroll">
                     {'J1': -32, 'J2': -6, 'J3': 60, 'J4': 46, 'J5': -50, 'J6': 24, 'J7': 0, 'J8': 0, 'T': '1643926690.54'}, 1643926693.8405492, 3.300549268722534 <br>
@@ -382,8 +382,8 @@ contact course staff.
                     <a href="https://www.arducam.com/docs/cameras-for-raspberry-pi/multi-camera-adapter-board/2mp-stereo-camera-global-shutter-mipi-arducam/#23-display-images-via-vlc-media-player">tutorial</a>,
                     so I'll use that as reference.
                 </p>
-                <img src="Files/img/progress3/week5/camera-connected.jpg" style="max-height: 200px"/>
-                <img src="Files/img/progress3/week5/lib-camera.jpg" style="max-height: 200px"/>
+                <img src="Files/img/wen101/week5/camera-connected.jpg" style="max-height: 200px"/>
+                <img src="Files/img/wen101/week5/lib-camera.jpg" style="max-height: 200px"/>
                 <p class="p-header">Pi Issues: SDCard</p>
                 <p>
                     In addition, we had an issue with log messages. Since our code doesn't really do anything other than
@@ -393,7 +393,7 @@ contact course staff.
                     to limit the amount of log messages to save on the disk. This prevented any errors where we just try to edit a file,
                     or install a new application, but is limited because the log messages took up 11 GB of the disk space.
                 </p>
-                <img src="Files/img/progress3/week5/fixing-issue.jpg"/>
+                <img src="Files/img/wen101/week5/fixing-issue.jpg"/>
 
                 <p class="p-header">What I learned</p>
                 <p>
