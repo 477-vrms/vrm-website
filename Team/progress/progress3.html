@@ -20,7 +20,7 @@ contact course staff.
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="George Hadley">
-    <meta name = "format-detection" content = "telephone=no" />
+    <meta name ="format-detection" content = "telephone=no" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <!--CSS-->
@@ -61,6 +61,7 @@ contact course staff.
                     <li><a href="Team/progress/progress3.html#week2-div">Week 2</a></li>
                     <li><a href="Team/progress/progress3.html#week3-div">Week 3</a></li>
                     <li><a href="Team/progress/progress3.html#week4-div">Week 4</a></li>
+                    <li><a href="Team/progress/progress3.html#week5-div">Week 5</a></li>
                 </ul>
             </div>
 
@@ -353,6 +354,63 @@ contact course staff.
                     it is on there. Emma got the camera for the pi, so the next step is using udp and sending the video
                     stream data to the server, and then server to website for debugging purposes. We don't know how
                     do it on unity, but we will figure that out on a later date.
+                </p>
+            </div>
+            <div id="week5-div">
+                <h4>Week 5:</h4>
+                <b>Date:</b> Feb 11, 2022<br>
+                <b>Total hours:</b> 10 <br>
+                <b>Description of design efforts:</b><br>
+
+                <p class="p-header">Lab Synopsis</p>
+                <p>
+                    This week, I've been mostly debugging my work because the Raspberry Pi ran into a few issues this week.
+                    One of the issue was that it would run out of space because of the continuation of log messages; we
+                    were able to fix that. In addition, we still needed to measure the time difference between data sent
+                    from the unity headset and data received on the pi. Finally, I was reading up on documentation on
+                    the camera we bought, but currently having trouble getting the pi to recognize the camera using the
+                    default <a href="https://github.com/raspberrypi/libcamera-apps">libcamera-apps</a> from raspbian
+                    themselves.
+                </p>
+
+                <p class="p-header">Pi Issues: Camera</p>
+                <p>
+                    We were able to upload code where the Pi should be able to continuously send data back and forth
+                    with the robotic arm; the next step is to do it on command. As a result, I've been helping
+                    Emma trying to set that up, so she understands how the data from the server is coming in and out.
+                    As in terms of the camera, I'm still confused on how to set that up. My team members found me a
+                    <a href="https://www.arducam.com/docs/cameras-for-raspberry-pi/multi-camera-adapter-board/2mp-stereo-camera-global-shutter-mipi-arducam/#23-display-images-via-vlc-media-player">tutorial</a>,
+                    so I'll use that as reference.
+                </p>
+                <img src="Files/img/progress3/week5/camera-connected.jpg" style="max-height: 200px"/>
+                <img src="Files/img/progress3/week5/lib-camera.jpg" style="max-height: 200px"/>
+                <p class="p-header">Pi Issues: SDCard</p>
+                <p>
+                    In addition, we had an issue with log messages. Since our code doesn't really do anything other than
+                    receive data, we just print the data it receives. But it is receiving the data at such a high rate
+                    that we ran out of space just to log messages. It was very annoying.
+                    As a result, we used this website <a href="https://andreaskaris.github.io/blog/linux/setting-journalctl-limits/">tutorial</a>
+                    to limit the amount of log messages to save on the disk. This prevented any errors where we just try to edit a file,
+                    or install a new application, but is limited because the log messages took up 11 GB of the disk space.
+                </p>
+                <img src="Files/img/progress3/week5/fixing-issue.jpg"/>
+
+                <p class="p-header">What I learned</p>
+                <p>
+                    I learned how to connect the camera to the pi hardware wise; I think I did it correctly because I
+                    saw lights turn on, but when I tried to use libcamera to open the camera, it doesn't work. As a
+                    result, I have to do some more digging around so then Brian can start playing around with it on
+                    unity. According to this
+                    <a href="https://www.arducam.com/docs/cameras-for-raspberry-pi/multi-camera-adapter-board/2mp-stereo-camera-global-shutter-mipi-arducam/#23-display-images-via-vlc-media-player">website</a>,
+                    I have to use VLC player; I'll try it next week.
+                </p>
+
+                <p class="p-header">Next Steps</p>
+                <p>
+                    Basically getting the camera set up for Brian where the Pi can send data back to the server.
+                    After that is complete, I can worry about video streaming data back to unity.
+                    Probably going to be watching those PCB videos just learn a little more about PCB, but it
+                    wouldn't be my main focus since Emma and James will be working on that mostly.
                 </p>
             </div>
 <!--            <div id="week3-div">-->
