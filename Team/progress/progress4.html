@@ -60,165 +60,228 @@ contact course staff.
             -Discuss your design efforts here. Remember to follow the guidelines presented in the Progress Report Policy, available <a href="https://engineering.purdue.edu/ece477/Course/Policies/">here</a>. This is a template entry; simply copy/paste this entry when doing progress reports each week.</br> -->
 
             <br>
+            <div style="border: solid #1F1F1F; width: fit-content; padding: 5px;">
+                <p style="display: block">Table of Contents</p>
+                <ul style="display: block">
+                    <li><a href="Team/progress/wen101.html#week2-div">Week 2</a></li>
+                    <li><a href="Team/progress/wen101.html#week3-div">Week 3</a></li>
+                    <li><a href="Team/progress/wen101.html#week4-div">Week 4</a></li>
+                    <li><a href="Team/progress/wen101.html#week5-div">Week 5</a></li>
+                </ul>
+            </div>
 
-            <h4>Week 2:</h4>
-				<b>Date:</b> 1/21/2022<br>
-				<b>Total hours:</b> 15<br>
-				<b>Description of design efforts:</b><br>
+			<div id="week2-div">
+				<h4>Week 2:</h4>
+					<b>Date:</b> 1/21/2022<br>
+					<b>Total hours:</b> 15<br>
+					<b>Description of design efforts:</b><br>
 
-				<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
-				<p>My main goals for the week were to set up the base website for our team, and to discuss and solidify
-					how we plan to have each component of our system work in tandem through the creation of a system level
-					diagram. I also worked with Matthew on transitioning our ECESS API into one that can be used with this
-					project.
-				</p>
+					<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
+					<p>My main goals for the week were to set up the base website for our team, and to discuss and solidify
+						how we plan to have each component of our system work in tandem through the creation of a system level
+						diagram. I also worked with Matthew on transitioning our ECESS API into one that can be used with this
+						project.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">Website</p>
-				<p>This ended up being a much simpler task than expected, as a template was readily available to us for
-					us to fill in. Aside from figuring out how to access the web hosted files for our team and moving these
-					files to a private repository where the team members could all collaborate without having to sign into
-					a remote machine, the only step that was needed was to implement a continuous deployment system that would
-					automatically deploy our changes to the website upon updating the repository, which was accomplished with
-					the help of Matthew.
-				</p>
+					<p style="font-weight: bold; text-align: center;">Website</p>
+					<p>This ended up being a much simpler task than expected, as a template was readily available to us for
+						us to fill in. Aside from figuring out how to access the web hosted files for our team and moving these
+						files to a private repository where the team members could all collaborate without having to sign into
+						a remote machine, the only step that was needed was to implement a continuous deployment system that would
+						automatically deploy our changes to the website upon updating the repository, which was accomplished with
+						the help of Matthew.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">System Level Diagram</p>
-				<p>As with any engineering undertaking, it's critical that everyone on the team is on the same page in terms
-					of their understanding of our system's understanding. To aid with this, as well as at the request of course
-					staff, I made a very simple system level diagram to aid in the visualization of our systems functionality.
-					In particular, our system has multiple components that will be in constant communication with each other
-					using a variety of protocols. Some of this communication will be direct, such as transmitting video feed
-					from the robot arm to the VR headset, while others will require some computation, such as when converting
-					hand remote position information from the VR headset to arm movement instructions that the robot arm can
-					carry out. Our first draft of our system level diagram can be seen below.
-				</p>
-				<img style="width: 100%;" src="Files/img/donnell9/week2/SystemDiagram1.png" />
-				<p>This system diagram shows the general flow of data throughout the components of our system. As shown, the VR
-					headset and controller will communicate with the arm through the assistance of a Google Cloud virtual machine
-					and a Raspberry Pi. The Google Cloud VM will take positional data from the VR headset and convert it to
-					movement instructions for the robot arm, while simultaneously streaming video from the arm to the VR headset.
-					TCP Websockets will be used to transfer video streaming data, while TCP MQTT will be used to transmit movement
-					data, as MQTT is better suited for efficient transfer of smaller data sizes. The Raspberry Pi will be used to
-					interface the hardware on the arm with the wireless connection to the Google Cloud server. We have discussed
-					the possibilities of using UDP for communications in the future, but we think that this will be a good launching
-					point for us to begin with.
-				</p>
+					<p style="font-weight: bold; text-align: center;">System Level Diagram</p>
+					<p>As with any engineering undertaking, it's critical that everyone on the team is on the same page in terms
+						of their understanding of our system's understanding. To aid with this, as well as at the request of course
+						staff, I made a very simple system level diagram to aid in the visualization of our systems functionality.
+						In particular, our system has multiple components that will be in constant communication with each other
+						using a variety of protocols. Some of this communication will be direct, such as transmitting video feed
+						from the robot arm to the VR headset, while others will require some computation, such as when converting
+						hand remote position information from the VR headset to arm movement instructions that the robot arm can
+						carry out. Our first draft of our system level diagram can be seen below.
+					</p>
+					<img style="width: 100%;" src="Files/img/donnell9/week2/SystemDiagram1.png" />
+					<p>This system diagram shows the general flow of data throughout the components of our system. As shown, the VR
+						headset and controller will communicate with the arm through the assistance of a Google Cloud virtual machine
+						and a Raspberry Pi. The Google Cloud VM will take positional data from the VR headset and convert it to
+						movement instructions for the robot arm, while simultaneously streaming video from the arm to the VR headset.
+						TCP Websockets will be used to transfer video streaming data, while TCP MQTT will be used to transmit movement
+						data, as MQTT is better suited for efficient transfer of smaller data sizes. The Raspberry Pi will be used to
+						interface the hardware on the arm with the wireless connection to the Google Cloud server. We have discussed
+						the possibilities of using UDP for communications in the future, but we think that this will be a good launching
+						point for us to begin with.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">DevOps Continuous Integration and Deployment with API Gateway</p>
-				<p>Our project will rely heavily on an API for communications between components. This API can be found 
-					<a href="https://github.com/477-vrms/vrms-api">here</a>
-					. It is a based off of the ECESS (Electrical and Computer Engineering Student Society) API gateway developed by
-					Matthew and me, which can be found
-					<a href="https://github.com/Purdue-ECESS/ecess-api">here</a>
-					. A big reason that we copied a large portion this API over is because it handles a lot of the housekeeping that
-					we will need to be dealing with constantly with our code, much of this having to do with the continuous Integration
-					pipeline that we want to have set up for our project. It will also allow us to interface with Google Cloud Platform
-					for the deployment of our server-side code, which will become the backbone of how data is handled in our project
-					(as seen in our system diagram).
-				</p>
+					<p style="font-weight: bold; text-align: center;">DevOps Continuous Integration and Deployment with API Gateway</p>
+					<p>Our project will rely heavily on an API for communications between components. This API can be found 
+						<a href="https://github.com/477-vrms/vrms-api">here</a>
+						. It is a based off of the ECESS (Electrical and Computer Engineering Student Society) API gateway developed by
+						Matthew and me, which can be found
+						<a href="https://github.com/Purdue-ECESS/ecess-api">here</a>
+						. A big reason that we copied a large portion this API over is because it handles a lot of the housekeeping that
+						we will need to be dealing with constantly with our code, much of this having to do with the continuous Integration
+						pipeline that we want to have set up for our project. It will also allow us to interface with Google Cloud Platform
+						for the deployment of our server-side code, which will become the backbone of how data is handled in our project
+						(as seen in our system diagram).
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">What I Learned</p>
-				<p>Through the creation of the system diagram and discussion with my teammates, I gained a much greater understanding
-					of our project's components and their interactions. Ultimately, I feel that this will really help in preparing
-					me to move forward with our project's development and will help me to keep up to date on the functionality of the
-					components that my teammates are working on.
-				</p>
+					<p style="font-weight: bold; text-align: center;">What I Learned</p>
+					<p>Through the creation of the system diagram and discussion with my teammates, I gained a much greater understanding
+						of our project's components and their interactions. Ultimately, I feel that this will really help in preparing
+						me to move forward with our project's development and will help me to keep up to date on the functionality of the
+						components that my teammates are working on.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">Next Week</p>
-				<p>My main goal for next week is to gain an understanding of Unity so that I will be able to assist Brian with the
-					development of the VR arm controller. I plan not only to work on my general understanding of Unity, but also to
-					dig through the existing simulations that Brian has already created to get a better understanding of how our
-					project specific code is driven. Aside from this, I plan to continue working with Matthew on the development and
-					implementation of our API onto the Google Cloud Platform.
-				</p>
+					<p style="font-weight: bold; text-align: center;">Next Week</p>
+					<p>My main goal for next week is to gain an understanding of Unity so that I will be able to assist Brian with the
+						development of the VR arm controller. I plan not only to work on my general understanding of Unity, but also to
+						dig through the existing simulations that Brian has already created to get a better understanding of how our
+						project specific code is driven. Aside from this, I plan to continue working with Matthew on the development and
+						implementation of our API onto the Google Cloud Platform.
+					</p>
+				</div>
             
-				<h4>Week 3:</h4>
-				<b>Date:</b> 1/28/2022<br>
-				<b>Total hours:</b> 6<br>
-				<b>Description of design efforts:</b><br>
+				<div id="week3-div">
+					<h4>Week 3:</h4>
+					<b>Date:</b> 1/28/2022<br>
+					<b>Total hours:</b> 6<br>
+					<b>Description of design efforts:</b><br>
 
-				<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
-				<p>My main goals for the week were to get familiar with Unity, play around with our project workspace, and try and
-					control the arm simulation using a VR setup in lab.
-				</p>
+					<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
+					<p>My main goals for the week were to get familiar with Unity, play around with our project workspace, and try and
+						control the arm simulation using a VR setup in lab.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">Unity</p>
-				<p>Setting up Unity was a simple process. All I really had to do was install the Unity Hub on my computer, create
-					an account, and then open up the project files that Brian set up. After doing all of this, I was able to access
-					the arm simulation just like Brian has been, as seen in the screenshot below. Through this I am able to manually
-					drag the arm around and see how it effects the data being sent to our server, and how that data will talk to the
-					robot arm.
-				</p>
-				<img style="width: 100%;" src="Files/img/donnell9/week2/Simulation1.png" />
+					<p style="font-weight: bold; text-align: center;">Unity</p>
+					<p>Setting up Unity was a simple process. All I really had to do was install the Unity Hub on my computer, create
+						an account, and then open up the project files that Brian set up. After doing all of this, I was able to access
+						the arm simulation just like Brian has been, as seen in the screenshot below. Through this I am able to manually
+						drag the arm around and see how it effects the data being sent to our server, and how that data will talk to the
+						robot arm.
+					</p>
+					<img style="width: 100%;" src="Files/img/donnell9/week2/Simulation1.png" />
 
-				<p style="font-weight: bold; text-align: center;">Set Up VR</p>
-				<p>This one was a lot more fun that it was work. After we got the simulation above up and running on our lab computer,
-					we were simply able to plug in and set up the VR headset in the lab. Once everything was set up and installed, we
-					were able to try our simulation actually using the VR. While everything works quite well, we did find there to be
-					a bit of lag in the video. The response time of the arm movement was fine, but the video feed itself seemed to be
-					quite choppy. This is definitely something that we'll need to look into moving forward in order to make sure that
-					the arm can function as smooth as possible.
-				</p>
+					<p style="font-weight: bold; text-align: center;">Set Up VR</p>
+					<p>This one was a lot more fun that it was work. After we got the simulation above up and running on our lab computer,
+						we were simply able to plug in and set up the VR headset in the lab. Once everything was set up and installed, we
+						were able to try our simulation actually using the VR. While everything works quite well, we did find there to be
+						a bit of lag in the video. The response time of the arm movement was fine, but the video feed itself seemed to be
+						quite choppy. This is definitely something that we'll need to look into moving forward in order to make sure that
+						the arm can function as smooth as possible.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">What I Learned</p>
-				<p>I'm really excited to have gotten my feet wet with Unity, and I plan to keep learning as the project progresses.
-					Also, it was really nice to see first-hand the simulation working in full VR. I really like the way that things
-					are looking, and I have high hopes for us moving forward.
-				</p>
+					<p style="font-weight: bold; text-align: center;">What I Learned</p>
+					<p>I'm really excited to have gotten my feet wet with Unity, and I plan to keep learning as the project progresses.
+						Also, it was really nice to see first-hand the simulation working in full VR. I really like the way that things
+						are looking, and I have high hopes for us moving forward.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">Next Week</p>
-				<p>My main goal for next week is to gain an understanding of PCB design. While Emma is mainly in charge of the process,
-					I definitely want to be available to help wherever I can, so I plan to go through all of the PCB training materials
-					over the course of the week. I also plan to keep working on the software side and will likely be looking into ways
-					to timestamp our data so that we can ensure that things get processed in the correct order.
-				</p>
+					<p style="font-weight: bold; text-align: center;">Next Week</p>
+					<p>My main goal for next week is to gain an understanding of PCB design. While Emma is mainly in charge of the process,
+						I definitely want to be available to help wherever I can, so I plan to go through all of the PCB training materials
+						over the course of the week. I also plan to keep working on the software side and will likely be looking into ways
+						to timestamp our data so that we can ensure that things get processed in the correct order.
+					</p>
+				</div>
 
-				<h4>Week 4:</h4>
-				<b>Date:</b> 2/4/2022<br>
-				<b>Total hours:</b> 12<br>
-				<b>Description of design efforts:</b><br>
+				<div id="week4-div">
+					<h4>Week 4:</h4>
+					<b>Date:</b> 2/4/2022<br>
+					<b>Total hours:</b> 12<br>
+					<b>Description of design efforts:</b><br>
 
-				<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
-				<p>My main goal for the week was to complete the mechanical overview, which includes deciding on the packaging for our
-					hardware as well as creating CAD models, and also creating a basic PCB layout footprint.
-				</p>
+					<p style="font-weight: bold; text-align: center;">Main Goals for the Week</p>
+					<p>My main goal for the week was to complete the mechanical overview, which includes deciding on the packaging for our
+						hardware as well as creating CAD models, and also creating a basic PCB layout footprint.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">Packaging</p>
-				<p>No matter the hardware, in order to safely deliver the product, everything must be packaged in a way that will protect
-					the internals of the product and assist in its usability. For our project, the main feature will be an exposed robot
-					arm, which doesn't need any packaging. So, the packaging for our product is going to be fairly simple, as the only
-					thing that really needs protection is our PCB, Raspberry Pi, and any other exposed hardware for the arm. To do this,
-					we can use a simple box that will protect these elements while providing an opening for any cables or connectors.
-					There are many of these currently on the market that we could simply buy instead of having to make our own, but to
-					illustrate what we are looking for I used CAD to make an example to our dimensions. I used a parameterized
-					version of 
-					<a href="this">https://github.com/477-vrms/vrms-api/runs/4872020682?check_suite_focus=true</a> design to fit our
-					needs of a 13x10x8cm box. We plan on mounting this to the base of our robot arm.
-				</p>
-				<img style="width: 100%;" src="Files/img/donnell9/week4/box1.png" />
-				<img style="width: 100%;" src="Files/img/donnell9/week4/box2.png" />
+					<p style="font-weight: bold; text-align: center;">Packaging</p>
+					<p>No matter the hardware, in order to safely deliver the product, everything must be packaged in a way that will protect
+						the internals of the product and assist in its usability. For our project, the main feature will be an exposed robot
+						arm, which doesn't need any packaging. So, the packaging for our product is going to be fairly simple, as the only
+						thing that really needs protection is our PCB, Raspberry Pi, and any other exposed hardware for the arm. To do this,
+						we can use a simple box that will protect these elements while providing an opening for any cables or connectors.
+						There are many of these currently on the market that we could simply buy instead of having to make our own, but to
+						illustrate what we are looking for I used CAD to make an example to our dimensions. I used a parameterized
+						version of 
+						<a href="this">https://github.com/477-vrms/vrms-api/runs/4872020682?check_suite_focus=true</a> design to fit our
+						needs of a 13x10x8cm box. We plan on mounting this to the base of our robot arm.
+					</p>
+					<img style="width: 100%;" src="Files/img/donnell9/week4/box1.png" />
+					<img style="width: 100%;" src="Files/img/donnell9/week4/box2.png" />
 
-				<p style="font-weight: bold; text-align: center;">PCB Layout Footprint</p>
-				<p>While there is a lot to PCB design, I was tasked this week with creating a very simple layout footprint for our PCB.
-					Nearly all of the design still has to be done, but this gives us a general idea of what we need to include on our PCB.
-					For our PCB we're going to keep it simple, since we will have a lot of help from our Raspberry Pi. Our PCB will include
-					our STM micro alongside a buzzer and its MOSFET, with 5 screw terminals (3 for the arm, 2 for the buzzer). The layout
-					can be seen below. All of our elements will fit on a 5x8cm board.
-					<img style="width: 100%;" src="Files/img/donnell9/week4/pcb.png" />
-				</p>
+					<p style="font-weight: bold; text-align: center;">PCB Layout Footprint</p>
+					<p>While there is a lot to PCB design, I was tasked this week with creating a very simple layout footprint for our PCB.
+						Nearly all of the design still has to be done, but this gives us a general idea of what we need to include on our PCB.
+						For our PCB we're going to keep it simple, since we will have a lot of help from our Raspberry Pi. Our PCB will include
+						our STM micro alongside a buzzer and its MOSFET, with 5 screw terminals (3 for the arm, 2 for the buzzer). The layout
+						can be seen below. All of our elements will fit on a 5x8cm board.
+						<img style="width: 100%;" src="Files/img/donnell9/week4/pcb.png" />
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">What I Learned</p>
-				<p>I have always really enjoyed playing around with CAD, but I've only had a couple of chances to do so for school projects,
-					so I had a lot of fun researching and editing designs for our hardware box. I also used KiCad for the first time,
-					which was a really nice learning experience. I plan on helping with the actual PCB design in the future, so it was
-					to get my feet wet in KiCad with something simple.
-				</p>
+					<p style="font-weight: bold; text-align: center;">What I Learned</p>
+					<p>I have always really enjoyed playing around with CAD, but I've only had a couple of chances to do so for school projects,
+						so I had a lot of fun researching and editing designs for our hardware box. I also used KiCad for the first time,
+						which was a really nice learning experience. I plan on helping with the actual PCB design in the future, so it was
+						to get my feet wet in KiCad with something simple.
+					</p>
 
-				<p style="font-weight: bold; text-align: center;">Next Week</p>
-				<p>My main goal for next week is to keep working on the PCB training videos. Having started using KiCad this week, I don't
-					think I'll have any issues picking up the software. On top of this, I plan on being available for any help that Emma,
-					Brian, and Matthew might need, so I'll be sure to keep in communication with them and keep my plan flexible.
-				</p>
+					<p style="font-weight: bold; text-align: center;">Next Week</p>
+					<p>My main goal for next week is to keep working on the PCB training videos. Having started using KiCad this week, I don't
+						think I'll have any issues picking up the software. On top of this, I plan on being available for any help that Emma,
+						Brian, and Matthew might need, so I'll be sure to keep in communication with them and keep my plan flexible.
+					</p>
+				</div>
+
+				<div id="week5-div">
+					<h4>Week 5:</h4>
+					<b>Date:</b> 2/11/2022<br>
+					<b>Total hours:</b> 6<br>
+					<b>Description of design efforts:</b><br>
+
+					<p style="font-weight: bold; text-align: center;">Main Goals for the Week / Summary</p>
+					<p>My main goal for the week was to complete more of the PCB training as well as be available to assist the team as they
+						work on their parts of the project. Through my general learning about PCB's, I was able to create a basic layout
+						footprint last week, as seen in the following figure.
+						<img style="width: 100%;" src="Files/img/donnell9/week4/pcb.png" />
+						However, I discovered that I would be needing an additional connector for the purpose of programming our microcontroller
+						once It's on the chip. With this in mind, I will likely need to adjust our layout footprint not only to fit the new
+						connector, but also to more efficiently make connections between pins of the micro and the other devices/connectors on
+						the PCB. I don't know enough to confidently do this yet, but I certainly expect to get this done in the next couple of
+						weeks.
+					</p>
+
+					<p style="font-weight: bold; text-align: center;">PCB Updates</p>
+					<p>As I mentioned above, we will need to make some design changes in the layout footprint for our PCB. When I made the
+						original layout, my main goal was to include all of the devices/connections we will need, and space them in an orderly
+						manner. Since we didn't yet know the exact pins of the micro we will be using, as well as the fact that we didn't know
+						we would need a connector just to program the micro, our current design is lacking, and will need to be updated. While
+						I would like to be able to do this immediately so we could lock down our footprint and simply focus on the design of
+						our circuit, I think doing so would be premature. There's a lot that we don't know yet in terms of what aspects of the
+						micro we will be using, as all of the work we have done so far with the micro has been with the development board.
+						Therefore, I think it would be wiser for me to instead continue my research and training on PCB's, and wait to updated
+						our design until we are sure about what we need. Otherwise, time will likely end up getting wasted having to make the
+						new diagram, understand its flaws, and then make yet another iteration. Most of my effort this next week will be focused
+						on continuing the PCB training. Our current plan is for me to learn as much of the software as I can, and for Emma to
+						understand the design of the circuit, what parts of our micro will need to be used, etc. This way, she can tell me what
+						needs to happen, and I can design the PCB to her specifications.
+					</p>
+
+					<p style="font-weight: bold; text-align: center;">What I Learned</p>
+					<p>I have continued to learn about PCB design, and what that entails for our project. With this in mind I am better prepared
+						to continue the PCB training material, since in the back of my mind I'll have a better idea of what to look out for with
+						our project and what to expect when bringing our PCB to life.
+					</p>
+
+					<p style="font-weight: bold; text-align: center;">Next Week</p>
+					<p>My main goal for next week is very similar to this past week. I will focus on the PCB training material, while also
+						staying available for any help that Brian, Emma, and Matthew might need. Hopefully at the end of next week, I'll have a
+						better understanding of what I need to do fix our PCB layout, and in communication with Emma, I hope to be able to
+						produce an updated layout footprint that will better suit our needs.
+					</p>
+				</div>
         </div>
 	
 		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
