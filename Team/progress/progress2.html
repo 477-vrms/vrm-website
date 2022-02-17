@@ -52,6 +52,7 @@ contact course staff.
 			<!-- Instantiate "tools" needed for a page. Tools are premade functional blocks that can be used to build a page,
 			and include things such as a file lister (for listing out homework assignments or tutorials)
 		-->
+			<h2>Progress Report for Brian Latimer</h2>
 			<div style="border: solid #1F1F1F; width: fit-content; padding: 5px;">
 				<p style="display: block">Table of Contents</p>
 				<ul style="display: block">
@@ -63,7 +64,6 @@ contact course staff.
 				</ul>
 			</div>
 			<div id="week2">
-				<h2>Progress Report for Brian Latimer</h2>
 
 				<!-- <h4>Week 1:</h4>
             <b>Date:</b> -Enter today's date here-<br>
@@ -305,59 +305,56 @@ contact course staff.
 
 				<br>
 
-				<h4>Week 5:</h4>
-				<b>Date:</b> 2/11/2022<br>
-				<b>Total hours:</b> 15<br>
+				<h4>Week 6:</h4>
+				<b>Date:</b> 2/17/2022<br>
+				<b>Total hours:</b> 10<br>
 				<b>Description of design efforts:</b><br>
 
 				<p style="font-weight: bold; text-align: center;">Synopsis</p>
-				<p>This week, I optimized some scripts, started on the debug menu, and changed the number of joints on
-					the arm.
+				<p>This week, I did a bunch of work with making the debug menu / main menu work properly with the
+					simulation. Basically, I just added a bunch of features to the menu. I also added a menu for
+					controls, so people other than me can understand how to use the controllers. I also created a logo
+					for the team's name.
 
 				</p>
-				<p>
-					First, I did a bit of bug-fixing to make the simulation run faster and transmit data better.
-					Previously for reasons unknown the firebase was updating slowly when transmitting data from the lab
-					PC and standalone VR headset. What I figured out was that it was a mix of unoptimized scripts and
-					Wi-Fi latency. I’ve properly optimized the scripts, and we bought a USB-C to ethernet adapter for
-					the headset if Wi-Fi is ever a problem.
-					For the debug menu, I started working on it. This took a lot of research into how Oculus does UI
-					handling, so it was a lot of guessing and checking what worked and what didn’t. I ended up getting
-					it working, and all I need to do now is add features to it.
-					For the robot arm, I changed the simulation to only use 7 joints, which means that we only need to
-					add one extra motor to the robot arm. I’ve found by testing that this joint was somewhat redundant,
-					and doesn’t change the functionality that much.
+				<p style="font-weight: bold; text-align: center;">Menu</p>
+				<p>I added as a bunch of features to the menu, along with making sure that they actually worked. This
+					required changing scripts and adding workaround to make everything work as needed.
 				</p>
-
-				<p style="font-weight: bold; text-align: center;">Optimizing</p>
-				<p>This week, I worked on optimizing the general scripts I used, as it was clear that some of these had
-					some less than ideal complexity levels. The main problem this was causing is that the standalone VR
-					headset was transmitting data very slowly, which is against one of our PSSCs. I found that the main
-					culprit was actually an optimization I made to limit the amount of data being sent to the server, by
-					only sending it every hundredth of a millisecond, as opposed to as fast as possible. This ended up
-					lagging the program due to the calculations I was doing. I removed this, and added a different
-					optimization and now it works as well as the more powerful computer I was testing with.
+				<img style="width: 100%;" src="Files/img/blatimer/week6/menu.png" />
+				<p>Here is a rundown of what each thing does:</p>
+				<p>Box Stacking Demo - Toggles all of the objects from the "box stacking demo" which is just a huge arm
+					with some boxes you can stack on top of eachother.</p>
+				<p>Table Demo - Toggles the original demo, the table with a couple objects that you can interact with.
 				</p>
-				<p style="font-weight: bold; text-align: center;">Debug Menu</p>
-				<p>I started work on the debug menu, which took a much longer time than expected. This required a lot of
-					tutorials, and forum posts to get working. Eventually, I figured it out. While this is currently
-					just a debug menu to toggle features, I think that this is the start of a main menu, and various UI
-					elements the simulation definitely needs.</p>
-				<img style="width: 100%;" src="Files/img/blatimer/week5/debug.png" />
-				<p style="font-weight: bold; text-align: center;">Robot Arm</p>
-				<p>Previously, we thought that the robot would need two extra joints to work well, bringing it to 8
-					total joints. I found that the 4th joint is somewhat redundant, since joint 6 does most of the same
-					work. I locked the joint to 0 rotation, and it looks like I was correct. Going forward, we are going
-					to be only using 7 joints, since it will be much easier to make mechanically.</p>
-				<img style="width: 100%;" src="Files/img/blatimer/week5/no4thjoint.jpg" />
+				<p>Joint Text Data - Toggles the list of rotational angles of the joints.</p>
+				<p>Main Arm Toggle - Turns the arm on/off.</p>
+				<p>Server Connection - Toggles the connection to the server.</p>
+				<p>Controls Menu - Toggles the controls menu.</p>
+				<p>Main arm RC Multiplier - This slider controls how fast you want the remote control to move the
+					target. Higher values means that you have to move your arm less to make the target move.</p>
+				<p>Main Arm RC Rotation Lock - This is a bit confusing, but it snaps the rotation of the target to the
+					controller. With it off, the arm will not snap, and will allow you to control the rotation of the
+					arm without it snapping to your rotation. (It can get very hard to control with
+					it off)</p>
+				<p>Instant Claw - If on, will make the claw move instantly with the trigger, instead of an acceleration
+					effect.
+				</p>
+				<p>Test Arm - Makes the arm move by itself, somewhat like a demo. This can be used to show the arm
+					moving without having to control it.</p>
+				<p>Here is a gif of what the animation looks like:</p>
+				<img style="width: 100%;" src="Files/img/blatimer/week6/auto.gif" />
+				<p style="font-weight: bold; text-align: center;">Logo</p>
+				<p>I spent a little while creating a "logo" for the project. We decided to change names from "VRms" to
+					"VRm" because we only have one arm. Feel free to let us know how you like it!</p>
+				<img style="width: 100%;" src="Files/img/blatimer/week6/Vrm.png" />
 				<p style="font-weight: bold; text-align: center;">What I Learned</p>
-				<p>I learned this week that I have to be smart about what I'm writing in my scripts, since I see now
-					that they can cause performance issues. I also learned how UI works with oculus controllers, which
-					will be important for later.
+				<p>I learned more about UI in Unity this week. I also learned more about scripting too, since I had to
+					do a bunch of little modifications to get the UI working with the objects in the simulation.
 				</p>
 				<p style="font-weight: bold; text-align: center;">Next Week</p>
-				<p>Next week, I plan to work on the debug menu further, and more UI elements in general. Maybe if the Pi
-					camera gets sent to the server I can work on that, but I currently don’t know the ETA on that.
+				<p>Next week, I hope to start working on the video streaming side of the project, but if not, I can
+					continue to make improvements on the simulation.
 				</p>
 
 			</div>
