@@ -62,6 +62,7 @@ contact course staff.
                     <li><a href="Team/progress/wen101.html#week3-div">Week 3</a></li>
                     <li><a href="Team/progress/wen101.html#week4-div">Week 4</a></li>
                     <li><a href="Team/progress/wen101.html#week5-div">Week 5</a></li>
+                    <li><a href="Team/progress/wen101.html#week6-div">Week 6</a></li>
                 </ul>
             </div>
 
@@ -356,6 +357,7 @@ contact course staff.
                     do it on unity, but we will figure that out on a later date.
                 </p>
             </div>
+
             <div id="week5-div">
                 <h4>Week 5:</h4>
                 <b>Date:</b> Feb 11, 2022<br>
@@ -413,13 +415,68 @@ contact course staff.
                     wouldn't be my main focus since Emma and James will be working on that mostly.
                 </p>
             </div>
-<!--            <div id="week3-div">-->
-<!--                <h4>Week 3:</h4>-->
-<!--                <b>Date:</b> Jan 27, 2022<br>-->
-<!--                <b>Total hours:</b> 10 <br>-->
-<!--                <b>Description of design efforts:</b><br>-->
-<!--            </div>-->
 
+            <div id="week6-div">
+                <h4>Week 6:</h4>
+                <b>Date:</b> Feb 18, 2022<br>
+                <b>Total hours:</b> 10 <br>
+                <b>Description of design efforts:</b><br>
+
+                <p class="p-header">Lab Synopsis</p>
+                <p>
+                    This week, I continued working on issues with the Pi, like receiving data from the server.
+                    In addition, I worked on getting the camera setup, which is not really working on the
+                    moment, more information about that later. Lastly, I was working on the Software Formation Document.
+                </p>
+
+                <p class="p-header">Pi Issues: Camera Setup and Getting Data from the Pi</p>
+                <p>
+                    One issue we ran into this week was not being able to see that the Pi got data from the server. It
+                    was working before, but then we added some changes, and it wouldn't budge anymore. As a result,
+                    because we used GitHub as part of our file tracking, we backtracked our commits until it began
+                    working again; Brian set up unity to send random data, so basically I was looking to see those
+                    random data from Brian, and then compared the difference. Apparently, the Pi didn't like the order
+                    of declarations inside my background.py file compared to my Macbook.
+                </p>
+                <img src="Files/img/wen101/week6/recieve-not-working.jpg"/>
+                <p>
+                    Another issue was the camera again. When following the
+                    <a href="https://www.arducam.com/docs/cameras-for-raspberry-pi/multi-camera-adapter-board/2mp-stereo-camera-global-shutter-mipi-arducam/#23-display-images-via-vlc-media-player">instructions</a>,
+                    from before, it ran into kernel
+                    not supported. So instead, I tried to find a version where it did support my kernel version on
+                    the Pi; I was able to find
+                    <a href="https://www.arducam.com/docs/cameras-for-raspberry-pi/pivariety/how-to-install-kernel-driver-for-pivariety-camera/">this one</a>
+                    , and it recognized the camera, but it noted that it was out of date,
+                    so nothing will work. After even doing more research, I learned that "out of date" means
+                    "not compatible". As a result, I've been trying to build it from source if that has any hope.
+                    If this doesn't work, then I'll have to wipe the pi and downgrade it to a lower kernel version.
+                </p>
+
+                <p class="p-header">What I learned</p>
+                <p>
+                    I learned some commands from
+                    <a href="https://github.com/raspberrypi/libcamera-apps">libcamera-apps</a>
+                    , and then some basics on how to obtain camera
+                    data with
+                    <a href="https://opencv.org/">opencv</a>
+                    , according to documentation of the camera we are using, but I still have a long
+                    way to go before actually sending data from the pi to the server.
+                </p>
+
+                <p class="p-header">Next Steps</p>
+                <p>
+                    The next step is still unfortunately connect the camera to the pi and be able to take a picture.
+                    Then, be able to send camera data to the server using UDP.
+                </p>
+
+            </div>
+
+            <!--            <div id="week3-div">-->
+            <!--                <h4>Week 3:</h4>-->
+            <!--                <b>Date:</b> Jan 27, 2022<br>-->
+            <!--                <b>Total hours:</b> 10 <br>-->
+            <!--                <b>Description of design efforts:</b><br>-->
+            <!--            </div>-->
             <br>
         </div>
 
