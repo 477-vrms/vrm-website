@@ -63,6 +63,7 @@ contact course staff.
                     <li><a href="Team/progress/wen101.html#week4-div">Week 4</a></li>
                     <li><a href="Team/progress/wen101.html#week5-div">Week 5</a></li>
                     <li><a href="Team/progress/wen101.html#week6-div">Week 6</a></li>
+                    <li><a href="Team/progress/wen101.html#week7-div">Week 7</a></li>
                 </ul>
             </div>
 
@@ -469,6 +470,84 @@ contact course staff.
                     The next step is still unfortunately connect the camera to the pi and be able to take a picture.
                     Then, be able to send camera data to the server using UDP.
                 </p>
+
+            </div>
+
+            <div id="week7-div">
+                <h4>Week 7:</h4>
+                <b>Date:</b> Feb 25, 2022<br>
+                <b>Total hours:</b> 6 <br>
+                <b>Description of design efforts:</b><br>
+
+                <p class="p-header">Lab Synopsis</p>
+                <p>
+                    This week, I worked on debugging the raspberry pi, and tried to get the
+                    camera working. In addition, I helped Emma debug the pi where she
+                    can send data from the pi to the arm via serial.
+                </p>
+
+                <p class="p-header">Pi Issues: Camera Issue Stalled</p>
+                <p>
+                    I tried to get the camera drivers installed on the pi. All attempts failed because
+                    the drivers are awful maintained by the developers, and the drivers they have available
+                    for us to install were made for linux 32 bit; our pi is 64 bit. In addition, we just
+                    realized our pi is 64 bit, so that why it was working so slow. Lastly, we were not able
+                    to get the camera working at all this week. At the moment, we will be working around the problem,
+                    but at the moment, we will buy the default raspberry pi camera on it because that will
+                    definitively work. That camera will come on Wednesday from Amazon.
+                </p>
+
+                <p class="p-header">PI Issue: Wiping and Reworking</p>
+                <p>
+                    The Raspberry Pi screen froze because of the many failed attempts to install the drivers
+                    for the camera. As a result, we wiped it with the 64 bit version OS for the raspberry pi
+                    because the serial connection was not working with port 14 and 15 with the current OS. We
+                    were able to get it working, and I helped the team connect the entire pipeline of the
+                    VR headset moving, and the pi parsing the data from the VR headset.
+                </p>
+                <p>
+                    I guess it is nice to know how to set up the pi easily when we do a fresh install.
+                </p>
+
+                <p class="p-header">Real Time Streaming Protocol</p>
+                <p>
+                    Because I was not able to get the camera set up, we are going to samples from this website,
+                    <a href="https://file-examples.com/index.php/sample-video-files/sample-mp4-files/">https://file-examples.com/index.php/sample-video-files/sample-mp4-files/</a>
+                </p>
+                <img src="Files/img/wen101/week7/earth.jpg"/>
+                <p>
+                    It is a 30-second video we are going to put on repeat, and we are going to put it on repeat just
+                    so we can get server to unity side working. We are going to use the
+                    Real Time Streaming Protocol (RTSP) for video streaming; all it requires is port 554 to be open
+                    and the link being rtsp://ecess-api.matthewwen.com/video/[id] where id will be the camera
+                    to get the feed from. For default, it will just be 0. On the unity side, we are going to
+                    see if there is an application that supports rtsp on the unity side. According to multiple
+                    sources, they say you have to import the
+                    <a href="https://code.videolan.org/videolan/vlc-unity">VLC media player</a> into the
+                        application. However,
+                    we are going to use this <a href="https://github.com/gujadot/RTSP_Unity_Plugin">repo</a>
+                    as reference.
+                </p>
+
+                <p class="p-header">What I learned</p>
+                <p>
+                    I learned that camera we got for our project, the
+                    <a href="https://www.arducam.com/docs/cameras-for-raspberry-pi/multi-camera-adapter-board/2mp-stereo-camera-global-shutter-mipi-arducam/">
+                        Arducam 2MP*2 Stereo Camera MIPI Module
+                    </a>
+                    is not a good. We tried contacting them for help to set it up on the Raspberry Pi 4 Model B.
+                    We will be waiting for a response from them. As in terms of this camera, as long as we have at
+                    least a camera, we will meet the requirements.
+                </p>
+
+
+                <p class="p-header">Next Steps</p>
+                <p>
+                    I'm going to have Brian work on the camera setup with the Pi because another viewpoint on
+                    how to set up the camera helps. I'm going to work on the new camera when it comes in on
+                    Wednesday. I'm also trying to get UDP RSTP all set up.
+                </p>
+
 
             </div>
 
