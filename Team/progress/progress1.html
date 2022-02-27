@@ -184,10 +184,26 @@ contact course staff.
 	    
   	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
 	    <p> The next steps are to set up the SPI connection to see if it is successful. Then I need to install the buzzer I just ordered that we will really use in our project. We also need to start the PCB design next week.  </p>
-
-            <!-- <h4>Week 5:</h4> -->	    
-		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
-		<div id="footer"></div>
+	    
+	    <h4>Week 7:</h4>
+            <b>Date:</b> Feb 18, 2022<br>
+            <b>Total hours:</b> 25 hours <br>
+            <b>Description of design efforts:</b><br>
+            <p>This week I worked on connecting the Raspberry Pi to the Micro using a Uart connection so that the data points we have in the pi can be sent to the servo driver. This is one of the final steps to get our prototype fully working! After this we will need to slightly tweak the simulation to match the dimensions of the arm to help the user experience. There was a lot of issues with setting up the UART on the pi since the default Uart was miniUart which isn’t capable enough for our project. After a lot of struggling with switching the default UART on the Pi, I finally was able to switch to a different GPIO port to get it working. We now have data flowing from the pi to the controller. </p> 
+	    <p style="font-weight: bold; text-align: center;">How did the student work on it? </p>
+	    <p> As I said there was a lot of issues with the Pi this week, but using a lot of different sources explaining how to switch the default Uart to a different GPIO I was able to get it working. Below is the data from the Pi and the data being received by the Micro successfully. </p>
+		    
+	    <div class="inline-block"> 
+		   <img style="width: 100%;" src="Files/img/progress1/week2/pidatajpg.jpg"/>
+		   <img style="width: 100%;" src="Files/img/progress1/week2/microdatajpg.jpg"/>
+    	    </div>
+	    
+  	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
+	    <p> The next steps are to tweak the simulation/robot arm to have the same degrees of freedom and dimensions so that the user experience is better. We will be ordering our PCB soon too.</p>    
+            
+	    <!-- <h4>Week 7:</h4> -->	    
+	    <!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
+	    <div id="footer"></div>
 	    
 	    <h4>Sources: </h4>
 	    <div class="inline-block"> 
@@ -196,6 +212,13 @@ contact course staff.
 		ECE362 Lectures/Labs 
 		https://www.allaboutcircuits.com/industry-articles/an-overview-of-driver-circuits-for-piezo-transducer-buzzers/ 
 		https://learn.edwinrobotics.com/tutorial-switch-transistor-and-buzzer-on-breadboard/ 
+		https://raspberrypi.stackexchange.com/questions/104464/where-are-the-uarts-on-the-raspberry-pi-4 
+		https://projects-raspberry.com/board-to-board-communication/
+		https://di-marco.net/blog/it/2020-04-18-tips-disabling_bluetooth_on_raspberry_pi/
+		https://di-marco.net/blog/it/2020-06-06-raspberry_pi_3_4_and_0_w_serial_port_usage/#uart0--pl011
+		https://www.raspberrypi.com/documentation/computers/configuration.html
+		https://elinux.org/RPi_Serial_Connection
+		https://www.engineersgarage.com/articles-raspberry-pi-serial-communication-uart-protocol-ttl-port-usb-serial-boards/
     	    </div>
 
 
