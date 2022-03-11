@@ -64,6 +64,7 @@ contact course staff.
                     <li><a href="Team/progress/wen101.html#week5-div">Week 5</a></li>
                     <li><a href="Team/progress/wen101.html#week6-div">Week 6</a></li>
                     <li><a href="Team/progress/wen101.html#week7-div">Week 7</a></li>
+                    <li><a href="Team/progress/wen101.html#week9-div">Week 9</a></li>
                 </ul>
             </div>
 
@@ -546,6 +547,67 @@ contact course staff.
                     I'm going to have Brian work on the camera setup with the Pi because another viewpoint on
                     how to set up the camera helps. I'm going to work on the new camera when it comes in on
                     Wednesday. I'm also trying to get UDP RSTP all set up now that I'm off camera duty for a bit.
+                </p>
+            </div>
+
+            <div id="week9-div">
+                <h4>Week 9:</h4>
+                <b>Date:</b> Mar 11, 2022<br>
+                <b>Total hours:</b> 10 <br>
+                <b>Description of design efforts:</b><br>
+
+                <p class="p-header">Lab Synopsis</p>
+                <p>
+                    This week and last week, we worked on the camera, and setting up UDP to work with the Google Server
+                </p>
+
+                <p class="p-header">Server: Setting up UDP</p>
+                <p>
+                    I had coded that only work with one way connection. In other words, it was only working locally where
+                    the pi can send data to the server, but the server cannot send messages back. As a result, I had to
+                    restructure my code where it kept the ip address of the unity hardware, and then the ip address of
+                    the raspberry pi. The purpose of this is, so then it can retain the address if it needs to send data
+                    via UDP. After restricting the code, I was able to get it where the sever can send anything through
+                    UDP dgram without the need for the pi or the headset to request data. At this point, we have the
+                    pi send messages back and forth * n amount of times to send data. In addition, on the unity headset
+                    side, it is able to send UDP messages to the server, and retrieve UDP data.
+                </p>
+                <img src="Files/img/wen101/week9/docker.jpeg"/>
+
+                <p class="p-header">Pi: Camera</p>
+                <p>
+                    In lab today, huge thanks to James Donnelly, one of the best lab partners ever. Anyway, we were
+                    able to at least get the default raspberry pi camera working with the pi. Here is an example picture.
+                </p>
+                <img src="Files/img/wen101/week9/pi.jpeg"/>
+
+                <p class="p-header">Pi: Stereo Camera</p>
+                <p>
+                    The stereo camera been giving the team a lot of pain. At this point, we are going to send them what
+                    we are doing, and then the error messages that we ran into in hope that we get our money worth out
+                    of them. This process will probably continue during break as well.
+                </p>
+
+                <p class="p-header">Pi: Queue System</p>
+                <p>
+                    We have a queue system to recognize new requests from the pi. From my experience in OS (ECE 469),
+                    I learned the difference between a thread and a process, so I converted all my python
+                    process to thread because process basically fork the program, and we want the memory to be shared
+                    not isolated,
+                    so we are going to use Thread class in python.
+                </p>
+
+                <p class="p-header">What I learned</p>
+                <p>
+                    I learned that I have to allow UDP through a docker container to use UDP. In addition, I learned
+                    about some boot config. I'm still trying to learn more about stereo cameras. I also learned about
+                    UDP and actually getting that part work. I was worried that wasn't going to work at all.
+                </p>
+
+                <p class="p-header">Next Steps</p>
+                <p>
+                    The next steps would be to figure out the data type to pass through UDP. I'm not sure to do json
+                    format to send each picture 30 frames per second, but I'll figure it out.
                 </p>
             </div>
 
