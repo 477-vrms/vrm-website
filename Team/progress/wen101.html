@@ -65,6 +65,7 @@ contact course staff.
                     <li><a href="Team/progress/wen101.html#week6-div">Week 6</a></li>
                     <li><a href="Team/progress/wen101.html#week7-div">Week 7</a></li>
                     <li><a href="Team/progress/wen101.html#week9-div">Week 9</a></li>
+                    <li><a href="Team/progress/wen101.html#week11-div">Week 11</a></li>
                 </ul>
             </div>
 
@@ -608,6 +609,71 @@ contact course staff.
                 <p>
                     The next steps would be to figure out the data type to pass through UDP. I'm not sure to do json
                     format to send each picture 30 frames per second, but I'll figure it out.
+                </p>
+            </div>
+
+            <div id="week11-div">
+                <h4>Week 11:</h4>
+                <b>Date:</b> March 25, 2022<br>
+                <b>Total hours:</b> 3 <br>
+                <b>Description of design efforts:</b><br>
+                <p class="p-header">Lab Synopsis</p>
+                <p>
+                    I continued contact with the stereoscopic camera to hopefully get it working. In addition,
+                    I started to get the default pi camera connected to the camera, and I was working on connecting
+                    it to the python code.
+                </p>
+
+                <p class="p-header">Pi: Worse Case Scenario</p>
+                <p>
+                    For the worst case, libcamera came with a script where it can do a UDP connection of the feed
+                    to a server. I was planning on having that setup where if it's the raspberry pi, it just sends
+                    the UDP over to the server directly.
+                </p>
+                <p>
+                    Another solution would be to have the raspberry pi send the camera data continously to a random
+                    local port, and then have the python code connect to that random port, and then transcribe and
+                    update that UDP data to the cloud server.
+                </p>
+
+                <p class="p-header">Pi: Best Case Scenario</p>
+                <p>
+                    We initally looked into this python library,
+                    <a href="https://github.com/waveform80/picamera.git">https://github.com/waveform80/picamera.git</a>.
+                    The issue is that it doesn't support the raspberry pi 4 64 bit, so we have to use this
+                    repository. So the following code below doesn't work.
+                </p>
+                <img src="Files/img/wen101/week11/code.jpg"/>
+                <p>
+                    <a href="https://github.com/raspberrypi/picamera2">https://github.com/raspberrypi/picamera2</a>
+                    For this repository however, you still have to build from source, and when I did that, it broke
+                    the pi a little, so I might need to try something else.
+                </p>
+
+                <p class="p-header">Pi: Camera Connection</p>
+                <p>
+                    When going back and forth about the stereoscopic camera, I got this response.
+                </p>
+                <img src="Files/img/wen101/week11/camera_support.jpg"/>
+                <p>
+                    So far, we are using the camera replacement from the lab, so we can return the new camera I bought
+                    from Amazon, and then we are going to return the camera that caused us so much trouble from before.
+                    The seller wants to just update the firmware and return it back, but we want a full on refund
+                    because the trouble isn't worth it.
+                </p>
+
+                <p class="p-header">What I learned</p>
+                <p>
+                    I learned about how to connect to the camera via python, and setting it up is probably not
+                    as easy as I thought it would be. This week have been a little crazy, so I'll get this working
+                    as soon as possible.
+                </p>
+
+                <p class="p-header">Next Steps</p>
+                <p>
+                    I need to implement one of the ideas I just mentioned. I'm going to try the best case, and if I
+                    don't have that working near the end of the week, I'll switch to the worst case. The main goal
+                    is just to have it working.
                 </p>
             </div>
 
