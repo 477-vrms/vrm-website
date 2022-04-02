@@ -66,6 +66,7 @@ contact course staff.
                     <li><a href="Team/progress/wen101.html#week7-div">Week 7</a></li>
                     <li><a href="Team/progress/wen101.html#week9-div">Week 9</a></li>
                     <li><a href="Team/progress/wen101.html#week11-div">Week 11</a></li>
+                    <li><a href="Team/progress/wen101.html#week12-div">Week 12</a></li>
                 </ul>
             </div>
 
@@ -675,6 +676,85 @@ contact course staff.
                     don't have that working near the end of the week, I'll switch to the worst case. The main goal
                     is just to have it working.
                 </p>
+            </div>
+
+
+            <div id="week12-div">
+                <h4>Week 12:</h4>
+                <b>Date:</b> April 1, 2022<br>
+                <b>Total hours:</b> 10 <br>
+                <b>Description of design efforts:</b><br>
+
+                <p class="p-header">Lab Synopsis</p>
+                <p>
+                    I worked on what I mentioned last week, getting the code ready for the camera. So my main focus
+                    was getting that UDP pipeline fully running now that the camera was hypothetically setup.
+                </p>
+
+                <p class="p-header">Pi: The Camera Again</p>
+                <p>
+                    We made the assumption throughout the week that the camera was working, but then one day
+                    the camera just broke on us again. Based off all documentation we looked at, they all use
+                    libcamera-apps as their source of getting data from the camera, and the script to install
+                    libcamera-apps python library was failing.
+                </p>
+                <img src="Files/img/wen101/week12/no-camera.jpg"/>
+                <p>
+                    So as a result, I decided to just have the pi send
+                    camera data to the port 4200, and then the python program binds to that port and sends that
+                    data to google cloud. The reason of why we are doing this is because the build to access the
+                    bytes directly from the libcamera library wasn't working. In addition, it messed up what we
+                    initally had working.
+                </p>
+                <img src="Files/img/wen101/week12/build-fail.jpg"/>
+                <p>
+                    As of 8:21 pm from James Donnelly, he got the camera up and working. We had to reset the pi, and
+                    then set up everything all over again. It has been such a pain, but it is so nice to have it working
+                    again. Here is a picture of James using the camera <3.
+                </p>
+                <img src="Files/img/wen101/week12/james-goat.jpg"/>
+
+                <p class="p-header">Pi: UDP Updates</p>
+                <p>
+                    I've been thinking a lot about how to structure this data. So for the initial request, it is
+                    going to take a JSON bytes to send it to the server to store the pi UDP addresses. Afterwards,
+                    it will retrieve the raw UDP bytes from the camera to the pi. The initial JSON bytes is for
+                    authentication that it is from the raspberry pi, and the rest is just the camera feed.
+                </p>
+
+                <p class="p-header">Server: TCP Updates</p>
+                <p>
+                    Because we will be using UDP, and UDP needs a confirmation that it is connected or not to the
+                    raspberry pi. As a result, we are going to have TCP do the confirmation for us that it
+                    successfully retrieve the UDP address of the Pi and the VR headset.
+                </p>
+
+                <p class="p-header">Server: UDP Updates</p>
+                <p>
+                    So I reconfigured the Server to do the same thing. It will first have the unity server send an
+                    initial UDP JSON object just so it has the address to the unity VR headset, and then have it
+                    retrieve the bytes. While writing this, I realized that there isn't a confirmation that it
+                    has both addresses because UDP doesn't check if the packet been successfully sent, so I will
+                    have to integrate from UDP for do the confirmation that it has both the UDP address of the raspberry
+                    pi and the VR headset.
+                </p>
+
+                <p class="p-header">What I learned</p>
+                <p>
+                    I learned that Camera on the Raspberry Pi is annoying, and that I was really second guessing putting
+                    UDP and TCP on this device. After working on it, I'm very thankful that I have both protocol onto
+                    the device. It isn't possible to do all this with UDP, which I've been thinking for the entire
+                    time. We do need some level handshake to ensure the connection is successful.
+                </p>
+
+                <p class="p-header">Next Steps</p>
+                <p>
+                    I still need to use TCP to check if the connection between the raspberry pi, VR headset, and the
+                    Google Server is successful. In addition, I need to get the unity code all up and running. And
+                    since James got the Camera Code working, all I have to do is link everything up, and I should be
+                    set.
+                </p>
+
             </div>
 
             <!--            <div id="week3-div">-->
