@@ -57,16 +57,17 @@ contact course staff.
             <br>
             <div style="border: solid #1F1F1F; width: fit-content; padding: 5px;">
                 <p style="display: block">Table of Contents</p>
-                <ul style="display: block">
-                    <li><a href="Team/progress/wen101.html#week2-div">Week 2</a></li>
-                    <li><a href="Team/progress/wen101.html#week3-div">Week 3</a></li>
-                    <li><a href="Team/progress/wen101.html#week4-div">Week 4</a></li>
-                    <li><a href="Team/progress/wen101.html#week5-div">Week 5</a></li>
-                    <li><a href="Team/progress/wen101.html#week6-div">Week 6</a></li>
-                    <li><a href="Team/progress/wen101.html#week7-div">Week 7</a></li>
-                    <li><a href="Team/progress/wen101.html#week9-div">Week 9</a></li>
-                    <li><a href="Team/progress/wen101.html#week11-div">Week 11</a></li>
-                    <li><a href="Team/progress/wen101.html#week12-div">Week 12</a></li>
+                <ul style="display: flex; ">
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week2-div">Week 2</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week3-div">Week 3</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week4-div">Week 4</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week5-div">Week 5</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week6-div">Week 6</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week7-div">Week 7</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week9-div">Week 9</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week11-div">Week 11</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week12-div">Week 12</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week13-div">Week 13</a></li>
                 </ul>
             </div>
 
@@ -790,14 +791,51 @@ contact course staff.
                     with the server first. It will then trigger the raspberry pi via MQTT to tell it to connect
                     to the server with UDP. It will continue that process until the server tell the pi via UDP that
                     it successfully connected to the pi. Then the raspberry pi will send the camera data from the pi
-                    to the VR headset no problem.
+                    to the VR headset no problem. Below is a video of it working, however the resolution is
+                    bad because we have to send small packet sizes. As a result, we worked on an
+                    algorithm that broke the image up into different packets, and then combine them in unity.
                 </p>
+
+                <video width="320" height="240" controls>
+                    <source src="Files/img/wen101/week13/inital-udp.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
 
                 <p class="p-header">VR Headset: Headset</p>
                 <p>
                     The initial issue is that we do not understand the data from the stream. So we're currently
-                    working on parsing that data and getting an image from it.
+                    working on parsing that data and getting an image from it. We later discover it to be
+                    sending h264 data fragments; how that worked is that it would send an initial frame being
+                    what is currently in the frame. Afterwards, it would send the small changes that occur from
+                    one frame to another frame. The issue is that unity doesn't have a library that allows us to
+                    parse a h264 and convert it to an image, in addition that initial frame is really large. As a result,
+                    we decided to stay with sending a continuous stream of jpeg images; maybe later, we will switch to
+                    h264. However, since h264 and jpeg requires sending large packets, we decided it would be wise to
+                    split the image up into different packets, and then combine them back together into one. The idea
+                    came from
+                    <a href="https://en.wikipedia.org/wiki/GStreamer">gstreamer</a> and from
+                    <a href="https://engineering.purdue.edu/ece264/19sp/hw/HW11">Professor Quinn's BMP homework assignment</a>.
+                    Basically, we added a header to each packet indicating the following. The raspberry pi would
+                    split the image into multiple different packets, and then the unity code will switch the packets
+                    into one image, and then show it front of a texture. We have it for jpeg, but this code will
+                    also be useful if we decide to pivot and use h264.
                 </p>
+                <p class="p-header">
+                    This is a photo on how we split it in python.
+                </p>
+                <img src="Files/img/wen101/week13/python.jpeg"/>
+                <p class="p-header">
+                    This is how the unity code parse the data from python and then stich them together.
+                </p>
+                <img src="Files/img/wen101/week13/unity.jpg"/>
+
+                <p class="p-header">
+                    This is it working all together. It probably a little more slow than before.
+                </p>
+                <video style="" width="320" height="240" controls>
+                    <source src="Files/img/wen101/week13/udp-combine.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
 
                 <p class="p-header">What I learned</p>
                 <p>
