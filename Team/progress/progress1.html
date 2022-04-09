@@ -235,6 +235,38 @@ contact course staff.
   	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
 	    <p> The next steps are to tweak the simulation/robot arm to match the exact dimensions so we can pass the PSSC. We are also going to investigate the delay in the arm movements and see if we can make those any better. </p>
 	    <!-- <h4>Week 11:</h4> -->	
+	    
+	    <h4>Week 12:</h4>
+            <b>Date:</b> April 1, 2022<br>
+            <b>Total hours:</b> 15 hours <br>
+            <b>Description of design efforts:</b><br>
+	    <p> This week I was calibrating the robot arm to fit the simulated arm in unity. I had to update the existing micro code to add the two new joints, along with scaling the values like I did for the other joints to make it reach -90 to 90 degrees. Once that was done, Brian and I worked together to calibrate each motor individually. We made a video that shows the simulation vs real life arm to show the reaction time and progression that we have made. We ordered a lazy susan, wire lengtheners, and are looking to install next week when they arrive. I also put some time into the reliability document for this week. </p>
+	    <p style="font-weight: bold; text-align: center;">How did the student work on it? </p>
+	    <p> This week was mostly done in the CubeIDE to edit the software for the micro. Once that was done, Brian and I worked together to calibrate each motor individually. We did this by setting every other motor to the home position and moving the one motor to its full range of motion to see how it differs from the simulation. This was successful and we pinpointed a couple of possible areas of issues. One of these issues was that our base was leaning forward because we were missing the ball bearing part that came with the arm.  </p>
+	    <div class="inline-block"> 
+		   <img style="width: 45%;" src="Files/img/progress1/week2/lazysusan.png"/>
+		   <img style="width: 45%;" src="Files/img/progress1/week2/newwire.png"/>
+    	    </div>
+	    <p> Simulation vs Robot arm when values are sent from unity to arm </p>
+  	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
+	    <p> The next steps are to tweak the simulation/robot arm to match the exact dimensions so we can pass the PSSC. We are also going to investigate the delay in the arm movements and see if we can make those any better. </p>
+	    <!-- <h4>Week 12:</h4> -->	
+		    
+	    <h4>Week 13:</h4>
+            <b>Date:</b> April 8, 2022<br>
+            <b>Total hours:</b> 10 hours <br>
+            <b>Description of design efforts:</b><br>
+	    <p> This week I was mostly doing research for swapping our project to the raspberry Pi 3 along with trying to debug some of the bugs we have in our UART code right now. Switching to a Pi 3 means the pinout is different, so I had to find the correct pins for the new UART overlay, if I even needed to do an overlay this time. The Pi 4 needed an overlay since the Bluetooth module was covering one of the uart channels I wanted to use, but without research I was unsure if the Pi 3 would have the same issue. I was able to rewrite the pi code to successfully transmit data between the pi 3 and the micro by changing the code to the correct ports. </p>
+	    <p style="font-weight: bold; text-align: center;">How did the student work on it? </p>
+	    <p> Like I said above, I mostly was researching the Pi 3 uart information. I found that the Pi 3 only has Uart0 and Uart1 as opposed to the Pi4B which had many more. This isn’t a big problem for us since we are only using 2 UART channels anyway. All I had to do was change the channel from the 4B pins to the Pi3 pins on the official datasheet.  </p>
+	    <div class="inline-block"> 
+		   <img style="width: 45%;" src="Files/img/progress1/week2/rpi3data.png"/>
+		   <img style="width: 45%;" src="Files/img/progress1/week2/rpi4data.png"/>
+    	    </div>
+	    <p> Simulation vs Robot arm when values are sent from unity to arm </p>
+  	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
+	    <p> The next steps are to tweak the simulation/robot arm to match the exact dimensions so we can pass the PSSC. We are also going to investigate the delay in the arm movements and see if we can make those any better. </p>
+	    <!-- <h4>Week 13:</h4> -->			    
 	    <!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
 	    <div id="footer"></div>
 	    
@@ -252,7 +284,8 @@ contact course staff.
 		https://www.raspberrypi.com/documentation/computers/configuration.html
 		https://elinux.org/RPi_Serial_Connection
 		https://www.engineersgarage.com/articles-raspberry-pi-serial-communication-uart-protocol-ttl-port-usb-serial-boards/
-    	    </div>
+    	        https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf
+	    </div>
 
 
     </div>
