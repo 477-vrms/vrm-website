@@ -68,6 +68,7 @@ contact course staff.
                     <li style="margin: 10px;"><a href="Team/progress/wen101.html#week11-div">Week 11</a></li>
                     <li style="margin: 10px;"><a href="Team/progress/wen101.html#week12-div">Week 12</a></li>
                     <li style="margin: 10px;"><a href="Team/progress/wen101.html#week13-div">Week 13</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week14-div">Week 14</a></li>
                 </ul>
             </div>
 
@@ -851,15 +852,79 @@ contact course staff.
                 </p>
             </div>
 
-            <!--            <div id="week3-div">-->
-            <!--                <h4>Week 3:</h4>-->
-            <!--                <b>Date:</b> Jan 27, 2022<br>-->
-            <!--                <b>Total hours:</b> 10 <br>-->
-            <!--                <b>Description of design efforts:</b><br>-->
-            <!--                <p class="p-header">Lab Synopsis</p>-->
-            <!--                <p class="p-header">What I learned</p>-->
-            <!--                <p class="p-header">Next Steps</p>-->
-            <!--            </div>-->
+            <div id="week14-div">
+                <h4>Week 14:</h4>
+                <b>Date:</b> April 15, 2022<br>
+                <b>Total hours:</b> 10 <br>
+                <b>Description of design efforts:</b><br>
+
+                <p class="p-header">Lab Synopsis</p>
+                <p>
+                    This week, we mostly reserved most of the lab time trying to get a few PSSE checked off, so we
+                    can pass the class. In addition, I took a back seat just to ensure that my team members have
+                    everything they need to at least pass the class at the moment.
+                </p>
+
+                <p class="p-header">Pi: Using the Buzzer</p>
+                <p>
+                    So Emma worked on code to activate the buzzer. Basically, it required sending * to the joint data
+                    to activate the buzzer. As a result, if there is a logistical problem with the arm, then it can
+                    activate the buzzer without the need to call a separate function on the pi. I created a separate
+                    function on the pi to activate the buzzer just in case we want to add some sort of notifier that
+                    tells the user that it is not connected to the internet.
+                </p>
+
+                <p class="p-header">Server: Activating the Buzzer</p>
+                <p>
+                    In addition to adding the buzzer code for the pi, we also added additional ways that the
+                    buzzer can be activated. We have a websocket that is created with the server; as a result, we
+                    want it to send a command to the pi to tell it to stop sending video data if the VR headset
+                    disconnects. In addition, we added features that keep the pi from sending data because it helps
+                    us save money. Thanks to Google Cloud, I was able to catch us sending large amount of camera data
+                    without the need to send camera data, so this new code will save us money.
+                </p>
+                <img src="Files/img/wen101/week14/gcloud.jpg"/>
+                <p>
+                    For this picture here, you notice the big spike is from accepting UDP data. We cannot have this
+                    happen again because that is only from one hour of activity, and it cost us money.
+                </p>
+
+                <p class="p-header">Pi: Camera</p>
+                <p>
+                    For the camera, we decided to stick with the default pi camera. Even though doing H264 will make
+                    the improvement that the sterocamera is possible, we had so many issues with that sterocamera and
+                    in addition, not enough time to optimize it for spark if we do get it working. As a result, we
+                    returned the sterocamera and just focused on getting H264 on the pi camera. If we do H264 on the pi
+                    camera with the high resolution, then it would be great.
+                </p>
+
+                <p class="p-header">What I learned</p>
+                <p>
+                    I learned that h264 is not simple, and that we have to do more potential digging to figure out
+                    how it works to get it to work well. We wanted to split the packet, but UDP is too inconsistent
+                    with the packets that it became too big of a hassle. Getting H264 working will send differences
+                    from the original frame, and the packet size will be very big initially, but smaller afterwards.
+                </p>
+
+                <p class="p-header">Next Steps</p>
+                <p>
+                    The only thing I really have to do is package everything, and continue working on the camera where
+                    it works reliable with unity. I already have a unity project to play around with, and I'll continue
+                    communicating with Brian to get everything working.
+                </p>
+
+            </div>
+
+<!--            <div id="week3-div">-->
+<!--                <h4>Week 3:</h4>-->
+<!--                <b>Date:</b> Jan 27, 2022<br>-->
+<!--                <b>Total hours:</b> 10 <br>-->
+<!--                <b>Description of design efforts:</b><br>-->
+<!--                <p class="p-header">Lab Synopsis</p>-->
+<!--                <p class="p-header">What I learned</p>-->
+<!--                <p class="p-header">Next Steps</p>-->
+<!--            </div>-->
+
             <br>
         </div>
 
