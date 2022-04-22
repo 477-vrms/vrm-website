@@ -69,6 +69,7 @@ contact course staff.
                     <li style="margin: 10px;"><a href="Team/progress/wen101.html#week12-div">Week 12</a></li>
                     <li style="margin: 10px;"><a href="Team/progress/wen101.html#week13-div">Week 13</a></li>
                     <li style="margin: 10px;"><a href="Team/progress/wen101.html#week14-div">Week 14</a></li>
+                    <li style="margin: 10px;"><a href="Team/progress/wen101.html#week15-div">Week 15</a></li>
                 </ul>
             </div>
 
@@ -913,6 +914,66 @@ contact course staff.
                     communicating with Brian to get everything working.
                 </p>
 
+            </div>
+
+            <div id="week15-div">
+                <h4>Week 15:</h4>
+                <b>Date:</b> April 22, 2022<br>
+                <b>Total hours:</b> 10 <br>
+                <b>Description of design efforts:</b><br>
+                <p class="p-header">Lab Synopsis</p>
+                <p>
+                    This week, we mostly worked on final packaging and trying to get our final PSSE checked off.
+                    We were running into bugs with stuff important with the PSSE, so I was responsible for fixing
+                    my bugs.
+                </p>
+                <p class="p-header">Pi: Not getting Server New Messages</p>
+                <p>
+                    This was our first bug. The issue was that we would always have to reset our micro every time
+                    we disconnected. In addition, the buzzer wasn't being activated. Emma found the problem on her
+                    end, but I also potentially found another error that occurred. So the Pi is set up to have two
+                    threads. One thread is meant to retrieve messages from the queue, and the second one is meant to
+                    write data to the arm. The issue is that I programmed it to write to the arm with the thread
+                    meant to only listen to data, so there was two thread to write to the arm and therefore activate
+                    the buzzer. As a result, I rewrote it where it enqueues to the arm thread to start the buzzer so
+                    then there is only one thread handling writing to the stm device. The buzzer worked after
+                    mine and Emma changes. What solution fixed it? Might be just her, or just mine, or a combination
+                    of both, but we will never know.
+                </p>
+                <div>
+                    <div style="display: flex; flex-wrap: wrap">
+                        <img width="400px" src="Files/img/wen101/week15/main-thread.jpg" style="padding: 5px"/>
+                        <img width="400px" src="Files/img/wen101/week15/extension.jpg" style="padding: 5px"/>
+                    </div>
+                    <p>
+                        In the following code, this is what the mqtt thread runs to listen for new arm data. The
+                        self.arm_handler.activate_buzzer() runs on that thread, which is what we don't want.
+                    </p>
+                </div>
+                <div style="display: flex; flex-wrap: wrap">
+                    <img width="400px" src="Files/img/wen101/week15/improvement.jpg"/>
+                    <p>
+                        As a result, I tell it to enqueue for the arm thread to process the data
+                        so then the MQTT thread can listen for new commands.
+                    </p>
+                </div>
+                <p class="p-header">Pi: Camera</p>
+                <p>
+                    Still working on the unity code, we made little progress on this end because it was more
+                    important to get checked off.
+                </p>
+                <p class="p-header">What I learned</p>
+                <p>
+                    This final part took a while to wrap everything together, but I'm happy this is done. I learned
+                    that good communication is really important to understand everybody part. It is also important
+                    to trust everybody, because it made mine and everybody else part so much easier. I'm
+                    so proud of my team.
+                </p>
+                <p class="p-header">Next Steps</p>
+                <p>
+                    Next step is to prepare the project for spark with video streaming, which should be accomplished
+                    because it was already done, and get H264 working if we can.
+                </p>
             </div>
 
 <!--            <div id="week3-div">-->
