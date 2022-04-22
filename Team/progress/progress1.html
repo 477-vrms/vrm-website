@@ -267,9 +267,31 @@ contact course staff.
   	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
 	    <p> The next steps are to tweak the simulation/robot arm to match the exact dimensions so we can pass the PSSC. We are also going to investigate the delay in the arm movements and see if we can make those any better. </p>
 	    <!-- <h4>Week 13:</h4> -->			    
+		    
+	    <h4>Week 14:</h4>
+            <b>Date:</b> April 15, 2022<br>
+            <b>Total hours:</b> 30 hours <br>
+            <b>Description of design efforts:</b><br>
+	    <p> I replaced the lazy susan with the ball bearing, reconfigured the uart settings for the Raspberry Pi 3 since we switched from the Raspberry Pi 4 to the Pi 3, drilled holes in some of the plates to keep it from sagging. The I debugged the PCB with Joe and found that the Vdda pin wasn’t tied to 3.3V, so the reset was not being pulled high. This was making it impossible to program the micro, but once we tied them together with a wire, we were able to communicate and program the micro. I added the buzzer code to the microcontroller so that it recognizes the special character “*” from the Raspberry Pi. The UART wasn’t working on the PCB, so after debugging for a while I realized that the pins were switched for the UART after the PCB was made, but thankfully it had been moved to one of the GPIO pins we had brought out to screw terminals. </p>
+	    <p style="font-weight: bold; text-align: center;">How did the student work on it? </p>
+	    <p> I replaced the lazy susan with the ball bearing, reconfigured the uart settings for the Raspberry Pi 3 since we switched from the Raspberry Pi 4 to the Pi 3, drilled holes in some of the plates to keep it from sagging. </p>
+	    <div class="inline-block"> 
+		   <img style="width: 45%;" src="Files/img/progress1/week2/lazysusaninstall.jpg"/>
+		   <img style="width: 45%;" src="Files/img/progress1/week2/ballbearing.png"/>
+    	    </div>
+	    <p> The I debugged the PCB with Joe and found that the Vdda pin wasn’t tied to 3.3V, so the reset was not being pulled high. </p>
+	    <div class="inline-block"> 
+		   <img style="width: 45%;" src="Files/img/progress1/week2/schem.png"/>
+    	    </div>
+	    <p> The UART wasn’t working on the PCB, so after debugging for a while I realized that the pins were switched for the UART after the PCB was made, but thankfully it had been moved to one of the GPIO pins we had brought out to screw terminals.  </p>
+	    <div class="inline-block"> 
+		   <img style="width: 45%;" src="Files/img/progress1/week2/table2.PNG"/>
+    	    </div>  	    
+	    <p style="font-weight: bold; text-align: center;"> What are the next steps that must be taken? </p>
+	    <p> The next steps are to tweak the simulation/robot arm to match the exact dimensions so we can pass the PSSC. We are also going to investigate the delay in the arm movements and see if we can make those any better. </p>
+	    <!-- <h4>Week 13:</h4> -->			    
 	    <!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
 	    <div id="footer"></div>
-	    
 	    <h4>Sources: </h4>
 	    <div class="inline-block"> 
 		https://rhye.org/post/stm32-with-opencm3-1-usart-and-printf/
